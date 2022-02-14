@@ -1,0 +1,337 @@
+- name: users | {{ user_login }} | remove preinstalled clutter from home directory
+  tags: user_config
+  file:
+    path: /home/{{ user_login }}/{{ item }}
+    state: absent
+  with_items:
+    - examples.desktop
+    - Desktop
+    - Documents
+    - Downloads
+    - Music
+    - Pictures
+    - Public
+    - Templates
+    - Videos
+
+- name: users | {{ user_login }} | create personal config directories
+  tags: user_config
+  file:
+    path: /home/{{ user_login }}/{{ item.dir }}
+    state: directory
+    owner: '{{ user_login }}'
+    group: '{{ user_login }}'
+    mode: 0700
+  with_items:
+    - { dir: desktop }
+    - { dir: documents }
+    - { dir: downloads }
+    - { dir: torrents }
+    - { dir: git }
+
+- name: users | {{ user_login }} | copy profile image
+  tags: user_config
+  copy:
+    src: files/avatar.png
+    dest: /var/lib/AccountsService/icons/{{ user_login }}.png
+    owner: root
+    group: root
+    mode: 0644
+
+- name: users | {{ user_login }} | use profile image
+  tags: user_config
+  lineinfile:
+    path: /home/{{ user_login }}/.profile
+    regexp: '^Icon='
+    line: 'Icon=/var/lib/AccountsService/icons/{{ user_login }}.png'
+
+- name: users | {{ user_login }} | get my_ansible_repo
+  tags: user_config
+  become_user: '{{ user_login }}'
+  git:
+    repo: '{{ my_ansible_repo }}'
+    dest: /home/{{ user_login }}/git/my_ansible_repo
+    update: False
+
+- name: users | {{ user_login }} | setup git user
+  tags: user_config
+  become_user: '{{ user_login }}'
+  community.general.git_config:
+    name: '{{ item.name }}'
+    value: '{{ item.value }}'
+    scope: global
+  with_items:
+    - { name: user.name, value: '{{ git_user_name }}' }
+    - { name: user.email, value: '{{ git_user_email }}' }
+    - { name: core.editor, value: 'code --wait' }
+  when: git_user_name is defined and git_user_email is defined
+
+# for most of the ubuntu config,
+# start from a clean install and create a "dconf dump / > dump-before.txt"
+# then change ubuntu settings (or use your current settings)
+# and dump to another file "dconf dump / > dump-after.txt"
+# then run the following command to compare the two files
+# diff dump-before.txt dump-after.txt
+# finaly, add the changes to the items below
+
+- name: users | {{ user_login }} | dconf changes
+  tags: user_config
+  become_user: '{{ user_login }}'
+  vars:
+    locations:
+      - base_path: org/gnome/desktop/a11y
+        key_value:
+          - { key: "always-show-universal-access-status", value: "false" }
+      - base_path: org/gnome/desktop/interface
+        key_value:
+          - { key: "clock-format", value: "'24h'" }
+          - { key: "gtk-theme", value: "'Yaru-dark'" }
+          - { key: "clock-show-seconds", value: "true" }
+          - { key: "clock-show-weekday", value: "true" }
+          - { key: "enable-animations", value: "false" }
+          - { key: "enable-hot-corners", value: "true" }
+          - { key: "show-battery-percentage", value: "true" }
+      - base_path: org/gnome/desktop/media-handling
+        key_value:
+          - { key: "autorun-never", value: "true" }
+          - { key: "autorun-x-content-ignore", value: "['x-content/audio-cdda', 'x-content/video-dvd', 'x-content/audio-player', 'x-content/image-dcf']" }
+          - { key: "autorun-x-content-open-folder", value: "@as []" }
+          - { key: "autorun-x-content-start-app", value: "['x-content/unix-software']" }
+      - base_path: org/gnome/desktop/notifications/application/gnome-printers-panel
+        key_value:
+          - { key: "enable", value: "false" }
+      - base_path: org/gnome/desktop/peripherals/keyboard
+        key_value:
+          - { key: "numlock-state", value: "true" }
+      - base_path: org/gnome/desktop/peripherals/touchpad
+        key_value:
+          - { key: "two-finger-scrolling-enabled", value: "true"}
+      - base_path: org/gnome/desktop/privacy
+        key_value:
+          - { key: "recent-files-max-age", value: "30" }
+          - { key: "remove-old-temp-files", value: "true" }
+          - { key: "remove-old-trash-files", value: "true" }
+          - { key: "report-technical-problems", value: "true" }
+      - base_path: org/gnome/desktop/screensaver
+        key_value:
+          - { key: "lock-delay", value: "uint32 0" }
+      - base_path: org/gnome/desktop/search-providers
+        key_value:
+          - { key: "sort-order", value: "['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Software.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.seahorse.Application.desktop']" }
+      - base_path: org/gnome/desktop/session
+        key_value:
+          - { key: "idle-delay", value: "uint32 600" }
+      - base_path: org/gnome/desktop/sound
+        key_value:
+          - { key: "allow-volume-above-100-percent", value: "false" }
+      - base_path: org/gnome/settings-daemon/plugins/color
+        key_value:
+          - { key: "night-light-enabled", value: "true" }
+          - { key: "night-light-schedule-automatic", value: "false" }
+          - { key: "night-light-schedule-from", value: "0.0" }
+          - { key: "night-light-schedule-to", value: "23.983333333333334" }
+          - { key: "night-light-temperature", value: "uint32 2700" }
+      - base_path: org/gnome/settings-daemon/plugins/power
+        key_value:
+          - { key: "sleep-inactive-ac-timeout", value: "3600" }
+          - { key: "sleep-inactive-ac-type", value: "'nothing'" }
+          - { key: "sleep-inactive-battery-timeout", value: "900" }
+      - base_path: org/gnome/system/location
+        key_value:
+          - { key: "enabled", value: "false" }
+      - base_path: org/gtk/settings/file-chooser
+        key_value:
+          - { key: "clock-format", value: "'24h'" }
+          - { key: "date-format", value: "'regular'" }
+          - { key: "location-mode", value: "'path-bar'" }
+          - { key: "show-hidden", value: "false" }
+          - { key: "show-size-column", value: "true" }
+          - { key: "show-type-column", value: "true" }
+          - { key: "sidebar-width", value: "151" }
+          - { key: "sort-column", value: "'name'" }
+          - { key: "sort-directories-first", value: "true" }
+          - { key: "sort-order", value: "'ascending'" }
+          - { key: "type-format", value: "'category'" }
+      - base_path: org/gnome/desktop/app-folders
+        key_value:
+        - { key: "folder-children", value: "['Utilities', 'YaST', 'a480f079-0654-4928-b577-f029fae32c3d', '23c8f41c-9db1-49b9-a143-767b968112b6', '4ae87e58-d11e-4f00-9cd2-300723cce986', '0e08a4da-de52-402e-a5ed-efca6bb9571c', 'f1c1739c-e90a-4f02-8c07-9057cdac1aca', 'c23879e7-4c06-4b24-8633-988a07233d4c', '9c34504b-2b9d-4ed5-b82d-cdc82be33899']" }
+      - base_path: org/gnome/desktop/app-folders/folders/0e08a4da-de52-402e-a5ed-efca6bb9571c
+        key_value:
+        - { key: "apps", value: "['gnome-system-monitor.desktop', 'org.gnome.PowerStats.desktop', 'htop.desktop', 'gnome-control-center.desktop']" }
+        - { key: "name", value: "'System'" }
+      - base_path: org/gnome/desktop/app-folders/folders/23c8f41c-9db1-49b9-a143-767b968112b6
+        key_value:
+        - { key: "apps", value: "['org.kde.krita.desktop', 'obs-studio_obs-studio.desktop', 'darktable.desktop', 'vlc_vlc.desktop', 'com.calibre_ebook.calibre.desktop']" }
+        - { key: "name", value: "'Art'" }
+        - { key: "translate", value: "false" }
+      - base_path: org/gnome/desktop/app-folders/folders/4ae87e58-d11e-4f00-9cd2-300723cce986
+        key_value:
+        - { key: "apps", value: "['okular_okular.desktop', 'onlyoffice-desktopeditors_onlyoffice-desktopeditors.desktop', 'org.gnome.gedit.desktop', 'thunderbird.desktop']" }
+        - { key: "name", value: "'Office'" }
+      - base_path: org/gnome/desktop/app-folders/folders/9c34504b-2b9d-4ed5-b82d-cdc82be33899
+        key_value:
+        - { key: "apps", value: "['software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'gnome-session-properties.desktop', 'update-manager.desktop', 'software-properties-gtk.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Software.desktop']" }
+        - { key: "name", value: "'Installers'" }
+        - { key: "translate", value: "false" }
+      - base_path: org/gnome/desktop/app-folders/folders/Utilities
+        key_value:
+          - { key: "apps", value: "['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop', 'p7zip-desktop_p7zip-desktop.desktop', 'gnome-language-selector.desktop', 'okular_org.kde.okular.desktop', 'com.calibre_ebook.calibre.ebook-edit.desktop', 'com.calibre_ebook.calibre.ebook-viewer.desktop', 'com.calibre_ebook.calibre.lrfviewer.desktop']" }
+          - { key: "categories", value: "['X-GNOME-Utilities']" }
+          - { key: "excluded-apps", value: "['org.gnome.Terminal.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'software-properties-gtk.desktop', 'update-manager.desktop', 'org.gnome.tweaks.desktop', 'snap-store_ubuntu-software.desktop', 'gnome-session-properties.desktop', 'org.gnome.Software.desktop']" }
+          - { key: "name", value: "'Stuff'" }
+          - { key: "translate", value: "false" }
+      - base_path: org/gnome/desktop/app-folders/folders/a480f079-0654-4928-b577-f029fae32c3d
+        key_value:
+          - { key: "apps", value: "['org.qbittorrent.qBittorrent.desktop', 'jdownloader2_JDownloader.desktop', 'firefox.desktop', 'com.stremio.Stremio.desktop']" }
+          - { key: "name", value: "'Internet'" }
+      - base_path: org/gnome/desktop/app-folders/folders/c23879e7-4c06-4b24-8633-988a07233d4c
+        key_value:
+          - { key: "apps", value: "['org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'org.gnome.tweaks.desktop']" }
+          - { key: "name", value: "'Utils'" }
+          - { key: "translate", value: "false" }
+      - base_path: org/gnome/desktop/app-folders/folders/f1c1739c-e90a-4f02-8c07-9057cdac1aca
+        key_value:
+          - { key: "apps", value: "['org.gnome.Terminal.desktop', 'code_code.desktop', 'google-chrome.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'org.gnome.Nautilus.desktop']" }
+          - { key: "name", value: "'_DEV_'" }
+          - { key: "translate", value: "false" }
+      - base_path: org/gnome/desktop/calendar
+        key_value:
+          - { key: "show-weekdate", value: "true" }
+      - base_path: org/gnome/desktop/notifications
+        key_value:
+          - { key: "application-children", value: "['org-gnome-shell-extensions','org-gnome-software']" }
+      - base_path: org/gnome/desktop/notifications/application/org-gnome-shell-extensions
+        key_value:
+          - { key: "application-id", value: "'org.gnome.Shell.Extensions.desktop'" }
+      - base_path: org/gnome/desktop/wm/preferences
+        key_value:
+          - { key: "action-middle-click-titlebar", value: "'lower'" }
+          - { key: "button-layout", value: "':minimize,maximize,close'" }
+      - base_path: org/gnome/mutter
+        key_value:
+          - { key: "center-new-windows", value: "true" }
+          - { key: "dynamic-workspaces", value: "true" }
+          - { key: "workspaces-only-on-primary", value: "false" }
+      - base_path: org/gnome/settings-daemon/plugins/xsettings
+        key_value:
+          - { key: "hinting", value: "'slight'" }
+      - base_path: org/gnome/shell
+        key_value:
+          - { key: "disable-user-extensions", value: "false" }
+          - { key: "enabled-extensions", value: "['clipboard-indicator@tudmotu.com', 'dash-to-panel@jderose9.github.com', 'freon@UshakovVasilii_Github.yahoo.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'sound-output-device-chooser@kgshank.net', 'ubuntu-appindicators@ubuntu.com', 'ubuntu-dock@ubuntu.com', 'system-monitor@paradoxxx.zero.gmail.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'extensions@abteil.org']" }
+          - { key: "favorite-apps", value: "['gnome-control-center.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'google-chrome.desktop', 'code_code.desktop']" }
+      - base_path: org/gnome/shell/extensions/clipboard-indicator
+        key_value:
+          - { key: "cache-only-favorites", value: "true" }
+          - { key: "move-item-first", value: "true" }
+          - { key: "strip-text", value: "false" }
+      - base_path: org/gnome/shell/extensions/dash-to-dock
+        key_value:
+          - { key: "animate-show-apps", value: "false" }
+          - { key: "apply-custom-theme", value: "false" }
+          - { key: "click-action", value: "'skip'" }
+          - { key: "custom-background-color", value: "false" }
+          - { key: "custom-theme-shrink", value: "true" }
+          - { key: "dash-max-icon-size", value: "32" }
+          - { key: "dock-fixed", value: "true" }
+          - { key: "dock-position", value: "'BOTTOM'" }
+          - { key: "extend-height", value: "true" }
+          - { key: "force-straight-corner", value: "false" }
+          - { key: "height-fraction", value: "1.0" }
+          - { key: "hot-keys", value: "false" }
+          - { key: "icon-size-fixed", value: "false" }
+          - { key: "intellihide-mode", value: "false" }
+          - { key: "isolate-monitors", value: "true" }
+          - { key: "isolate-workspaces", value: "true" }
+          - { key: "max-alpha", value: "0.80000000000000004" }
+          - { key: "middle-click-action", value: "'launch'" }
+          - { key: "multi-monitor", value: "true" }
+          - { key: "preferred-monitor", value: "0" }
+          - { key: "running-indicator-style", value: "'SEGMENTED'" }
+          - { key: "scroll-action", value: "'cycle-windows'" }
+          - { key: "shift-click-action", value: "'minimize'" }
+          - { key: "shift-middle-click-action", value: "'launch'" }
+          - { key: "show-apps-at-top", value: "true" }
+          - { key: "show-mounts", value: "false" }
+          - { key: "show-trash", value: "false" }
+          - { key: "transparency-mode", value: "'DYNAMIC'" }
+      - base_path: org/gnome/shell/extensions/dash-to-panel
+        key_value:
+          - { key: "animate-app-switch", value: "false" }
+          - { key: "animate-appicon-hover-animation-extent", value: "{'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}" }
+          - { key: "animate-show-apps", value: "false" }
+          - { key: "animate-window-launch", value: "false" }
+          - { key: "appicon-margin", value: "8" }
+          - { key: "appicon-padding", value: "4" }
+          - { key: "dot-position", value: "'BOTTOM'" }
+          - { key: "dot-style-focused", value: "'SEGMENTED'" }
+          - { key: "dot-style-unfocused", value: "'DASHES'" }
+          - { key: "group-apps", value: "true" }
+          - { key: "group-apps-label-font-color", value: "'#dddddd'" }
+          - { key: "group-apps-label-font-color-minimized", value: "'#dddddd'" }
+          - { key: "group-apps-underline-unfocused", value: "true" }
+          - { key: "group-apps-use-fixed-width", value: "false" }
+          - { key: "group-apps-use-launchers", value: "false" }
+          - { key: "hotkeys-overlay-combo", value: "'TEMPORARILY'" }
+          - { key: "intellihide", value: "false" }
+          - { key: "isolate-monitors", value: "true" }
+          - { key: "isolate-workspaces", value: "true" }
+          - { key: "overview-click-to-exit", value: "true" }
+          - { key: "panel-anchors", value: "'{\"0\":\"MIDDLE\"}'" }
+          - { key: "panel-element-positions", value: "'{\"0\":[{\"element\":\"showAppsButton\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedBR\"},{\"element\":\"leftBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"taskbar\",\"visible\":true,\"position\":\"centered\"},{\"element\":\"centerBox\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"dateMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"desktopButton\",\"visible\":true,\"position\":\"stackedBR\"}]}'" }
+          - { key: "panel-lengths", value: "'{\"0\":100}'" }
+          - { key: "panel-sizes", value: "'{\"0\":32}'" }
+          - { key: "secondarymenu-contains-showdetails", value: "false" }
+          - { key: "show-appmenu", value: "false" }
+          - { key: "show-apps-icon-file", value: "''" }
+          - { key: "show-favorites", value: "true" }
+          - { key: "show-favorites-all-monitors", value: "true" }
+          - { key: "show-running-apps", value: "true" }
+          - { key: "stockgs-force-hotcorner", value: "false" }
+          - { key: "stockgs-keep-dash", value: "false" }
+          - { key: "stockgs-keep-top-panel", value: "false" }
+          - { key: "stockgs-panelbtn-click-only", value: "false" }
+          - { key: "trans-gradient-bottom-color", value: "'#5c3566'" }
+          - { key: "trans-gradient-bottom-opacity", value: "0.29999999999999999" }
+          - { key: "trans-use-custom-bg", value: "false" }
+          - { key: "trans-use-custom-gradient", value: "false" }
+          - { key: "trans-use-custom-opacity", value: "true" }
+          - { key: "trans-use-dynamic-opacity", value: "true" }
+          - { key: "tray-size", value: "0" }
+      - base_path: org/gnome/shell/extensions/desktop-icons
+        key_value:
+          - { key: "show-home", value: "true" }
+          - { key: "show-trash", value: "true" }
+      - base_path: org/gnome/shell/extensions/extension-list
+        key_value:
+          - { key: "delete-button", value: "false" }
+          - { key: "hide-disabled", value: "false" }
+          - { key: "prefs-button", value: "true" }
+          - { key: "url-button", value: "false" }
+      - base_path: org/gnome/shell/extensions/extensions
+        key_value:
+          - { key: "position", value: "'panel'" }
+          - { key: "show-add", value: "true" }
+      - base_path: org/gnome/shell/extensions/extra-panels
+        key_value:
+          - { key: "display-clock", value: "true" }
+      - base_path: org/gnome/shell/extensions/sound-output-device-chooser
+        key_value:
+          - { key: "hide-on-single-device", value: "true" }
+          - { key: "icon-theme", value: "'colored'" }
+          - { key: "integrate-with-slider", value: "true" }
+          - { key: "omit-device-origins", value: "true" }
+      - base_path: org/gnome/shell/extensions/system-monitor
+        key_value:
+          - { key: "center-display", value: "false" }
+          - { key: "compact-display", value: "false" }
+          - { key: "move-clock", value: "false" }
+      - base_path: org/gtk/settings/color-chooser
+        key_value:
+          - { key: "selected-color", value: "(true, 0.36078431372549019, 0.20784313725490197, 0.40000000000000002, 1.0)" }
+  dconf:
+    key: "/{{ item.0.base_path }}/{{ item.1.key }}"
+    value: "{{ item.1.value }}"
+  with_subelements:
+    - '{{ locations }}'
+    - key_value

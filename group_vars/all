@@ -1,0 +1,7 @@
+---
+# telegram_chat_id: ""
+# telegram_token: ""
+# healthcheck_uuid: ""
+my_ansible_repo: https://github.com/Noriller/my-ansible.git
+# git_user_name: ""
+# git_user_email: ""

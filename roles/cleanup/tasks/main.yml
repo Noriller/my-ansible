@@ -1,0 +1,28 @@
+- name: cleanup | cleanup package cache
+  tags: always
+  apt:
+    autoclean: yes
+  changed_when: false
+  when:
+    ansible_distribution in ["Debian", "Ubuntu"]
+
+- name: cleanup | autoremove orphan packages
+  tags: always
+  apt:
+    autoremove: yes
+    purge: yes
+  when:
+    ansible_distribution in ["Debian", "Ubuntu"]
+
+- name: cleanup | send completion alert
+  include_tasks: playbooks/send_completion_alert.yml
+  tags: always
+  when:
+    - task_failed is not defined
+
+- name: cleanup | send failure alert
+  include_tasks: playbooks/send_failure_alert.yml
+  tags: always
+  when:
+    - task_failed is defined
+    - task_failed == true

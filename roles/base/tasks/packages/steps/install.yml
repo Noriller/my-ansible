@@ -1,0 +1,67 @@
+- name: install | apt packages
+  package:
+    name:
+      # basic stuff and dependencies
+      - git
+      - gh
+      - curl
+      - htop
+      - tree
+      - tmux
+      - gnome-software-plugin-flatpak
+      - ca-certificates
+      - gnupg
+      - lsb-release
+      - dconf-cli
+      - python3-psutil
+      - laptop-mode-tools
+      - gnome-tweaks
+      - lm-sensors
+      # dev stuff
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      # stuff i want
+      - gnome-system-monitor
+      - google-chrome-stable
+      - darktable
+      - krita
+      - qbittorrent
+      - thunderbird
+    state: latest
+  register: packages
+  until: packages is success
+  retries: 10
+  delay: 10
+
+- name: install | snap packages
+  community.general.snap:
+    name:
+      # utilities
+      - notepad-plus-plus
+      - obs-studio
+      - onlyoffice-desktopeditors
+      - jdownloader2
+      - canonical-livepatch
+      - p7zip-desktop
+      - okular
+      # stuff I want
+      - vlc
+      - discord
+    state: present
+
+- name: install | snap packages classic
+  community.general.snap:
+    name:
+      # dev stuff
+      - code
+    classic: true
+    state: present
+
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      # stuff I want
+      - com.stremio.Stremio
+      - com.calibre_ebook.calibre
+    state: present

@@ -1,0 +1,73 @@
+- name: packages | github cli
+  block:
+    - name: repositories | add github cli keyring
+      apt_key:
+        url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+        state: present
+        keyring: /etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
+
+    - name:
+        repositories | add github cli repository
+      apt_repository:
+        repo:
+          deb https://cli.github.com/packages
+          stable main
+        state: present
+        filename: github-cli.list
+
+- name: packages | chrome
+  block:
+    - name: repositories | add chrome key
+      apt_key:
+        url: https://dl.google.com/linux/linux_signing_key.pub
+        state: present
+
+    - name: repositories | add chrome repository
+      apt_repository:
+        repo:
+          deb [arch=amd64]
+          https://dl.google.com/linux/chrome/deb/
+          stable main
+        state: present
+        filename: google-chrome
+
+- name: packages | docker
+  block:
+    - name: repositories | add docker key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: repositories | add docker repository
+      apt_repository:
+        repo:
+          deb [arch=amd64]
+          https://download.docker.com/linux/ubuntu
+          bionic stable
+        state: present
+        filename: docker
+
+- name: packages | flatpak
+  block:
+    - name: repositories | add flatpak repo
+      apt_repository:
+        repo: ppa:flatpak/stable
+        state: present
+
+    - name: repositories | add flatpak
+      apt:
+        name: flatpak
+        state: present
+      register: flatpak
+
+    - name: repositories | Add flathub flatpak repository remote
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+        method: user
+      when: flatpak.changed
+
+    - name: repositories | Add flathub flatpak repository
+      shell: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      when: flatpak.changed

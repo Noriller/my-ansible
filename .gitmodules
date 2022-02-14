@@ -1,0 +1,3 @@
+[submodule "roles/ansible-role-customize-gnome"]
+	path = roles/ansible-role-customize-gnome
+	url = https://github.com/PeterMosmans/ansible-role-customize-gnome.git

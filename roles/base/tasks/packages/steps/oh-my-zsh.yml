@@ -1,0 +1,40 @@
+- name: packages | add oh-my-zsh
+  block:
+    - name: oh-my-zsh | install zsh
+      apt:
+        name:
+          - zsh
+        state: latest
+      register: oh_my_zsh
+
+    - name: oh-my-zsh | download oh-my-zsh script
+      get_url:
+        url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+        dest: /tmp/oh_my_zsh_script.sh
+        mode: 0755
+      when: oh_my_zsh.changed
+      register: oh_my_zsh_download
+
+    - name: oh-my-zsh | install oh-my-zsh script
+      become_user: '{{ user_login }}'
+      shell: sh -c /tmp/oh_my_zsh_script.sh
+      when: oh_my_zsh_download.changed
+      register: oh_my_zsh_install
+      ignore_errors: True
+
+    - name: oh-my-zsh | copy .zshrc
+      copy:
+        src: files/.zshrc
+        dest: /home/{{ user_login }}/.zshrc
+        owner: '{{ user_login }}'
+        group: '{{ user_login }}'
+        mode: 0644
+
+    - name: oh-my-zsh | make oh-my-zsh default shell
+      shell: sudo -k chsh -s $(which zsh) {{ user_login }}
+      when: oh_my_zsh_install.changed and oh_my_zsh_install is succeeded
+
+    - name: oh-my-zsh | remove oh-my-zsh script
+      file:
+        path: /tmp/oh_my_zsh_script.sh
+        state: absent

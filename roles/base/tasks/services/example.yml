@@ -1,0 +1,6 @@
+- name: random service template
+  tags: never,service
+  service:
+    name: "random stuff"
+    state: started
+    enabled: yes

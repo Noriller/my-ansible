@@ -1,0 +1,17 @@
+- name: notify healthchecks.io that the job ran
+  uri:
+    url: https://hc-ping.com/{{ healthcheck_uuid }}
+    method: POST
+    body: '{ "job": "{{ cron_job_name }}", "where": "{{ ansible_hostname }}" }'
+    body_format: json
+  changed_when: False
+  when: healthcheck_uuid is defined
+
+# - name: send completion notification via telegram
+#   telegram:
+#     token: "{{ telegram_token }}"
+#     chat_id: "{{ telegram_chat_id }}"
+#     msg_format: markdown
+#     msg: "✔️  Ansible provision finished on *{{ ansible_hostname }}*"
+#   changed_when: False
+#   when: telegram_token is defined and telegram_chat_id is defined

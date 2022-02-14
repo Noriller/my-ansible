@@ -1,0 +1,33 @@
+---
+- hosts: localhost
+  become: true
+
+  pre_tasks:
+    - name: pre | pre_tasks
+      tags: always
+      block:
+        - name: pre | update stuff
+          apt:
+            upgrade: dist
+            update_cache: yes
+          changed_when: False
+      rescue:
+        - set_fact: task_failed=true
+
+- hosts: localhost
+  tags: base
+  become: true
+  roles:
+    - base
+
+- hosts: localhost
+  tags: desktop
+  become: true
+  roles:
+    - desktop
+
+- hosts: localhost
+  tags: always
+  become: true
+  roles:
+    - cleanup

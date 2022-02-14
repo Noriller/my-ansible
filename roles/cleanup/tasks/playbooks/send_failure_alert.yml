@@ -1,0 +1,48 @@
+- block:
+  # - name: send failure notification via telegram
+  #   telegram:
+  #     token: "{{ telegram_token }}"
+  #     chat_id: "{{ telegram_chat_id }}"
+  #     msg_format: markdown
+  #     msg: "⚠️  Ansible provision failed on *{{ ansible_hostname }}/{{ cron_job_name }}*\n\n
+  #       *Task*:  {{ ansible_failed_task.name }}\n
+  #       *Action*: {{ ansible_failed_task.action }}\n
+  #       *Error Message*: \n ```{{ ansible_failed_result | to_nice_json }}```"
+  #   changed_when: False
+  #   when: telegram_token is defined and telegram_chat_id is defined
+
+  - name: notify healthchecks.io that the job failed
+    uri:
+      url: https://hc-ping.com/{{ healthcheck_uuid }}/fail
+      method: POST
+      body: '{ "job": "{{ cron_job_name }}", "where": "{{ ansible_hostname }}", "error": {{ ansible_failed_result | to_nice_json }} }'
+      body_format: json
+    changed_when: False
+    when: healthcheck_uuid is defined
+
+  rescue:
+    # - name: send failure notification via telegram
+    #   telegram:
+    #     token: "{{ telegram_token }}"
+    #     chat_id: "{{ telegram_chat_id }}"
+    #     msg_format: markdown
+    #     msg: "⚠️  Ansible provision failed on *{{ ansible_hostname }}/{{ cron_job_name }}*\n\n
+    #       The specific error couldn't be shown, check the log."
+    #   changed_when: False
+    #   when: telegram_token is defined and telegram_chat_id is defined
+
+    - name: notify healthchecks.io that the job failed
+      uri:
+        url: https://hc-ping.com/{{ healthcheck_uuid }}/fail
+        method: POST
+        body: '{ "job": "{{ cron_job_name }}", "where": "{{ ansible_hostname }}", "error": "rescue error!!!" }'
+        body_format: json
+      changed_when: False
+      when: healthcheck_uuid is defined
+
+- name: ansible job failed, clear cache later on to trigger another provision run
+  become: yes
+  at:
+    command: "if ! pgrep -f ansible-pull >/dev/null; then rm -rf /home/ansible/.ansible; fi"
+    count: 60
+    units: minutes

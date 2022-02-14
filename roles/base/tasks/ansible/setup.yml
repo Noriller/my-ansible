@@ -1,0 +1,45 @@
+- name: ansible setup | add ansible user
+  tags: always,ansible
+  user:
+    name: ansible
+    system: yes
+
+- name: ansible setup | set up sudo for ansible user
+  tags: always,ansible
+  copy:
+    src: files/sudoer_ansible
+    dest: /etc/sudoers.d/ansible
+    owner: root
+    group: root
+    mode: 0440
+
+- name: ansible setup | add ansible-pull cron job | auto provision
+  tags: always,ansible
+  cron:
+    name: ansible auto-provision
+    user: ansible
+    hour: "*"
+    # the -o option makes this cron job run only if there are changes to the repository
+    job: ansible-pull -o -U {{ my_ansible_repo }} -e "cron_job_name='auto-provision'" -e "user_login={{ user_login }}" -e "user_login={{ user_login }}" -e "git_user_name={{ git_user_name }}" -e "git_user_email={{ git_user_email }}" -e "telegram_chat_id={{ telegram_chat_id }}" -e "telegram_token={{ telegram_token }}" -e "healthcheck_uuid={{ healthcheck_uuid }}"
+
+- name: ansible setup | add ansible-pull cron job | update on boot
+  tags: always,ansible
+  cron:
+    name: ansible update on boot
+    user: ansible
+    special_time: reboot
+    job: ansible-pull -U {{ my_ansible_repo }} --tags "always" -e "cron_job_name='updates'" -e "user_login={{ user_login }}" -e "user_login={{ user_login }}" -e "git_user_name={{ git_user_name }}" -e "git_user_email={{ git_user_email }}" -e "telegram_chat_id={{ telegram_chat_id }}" -e "telegram_token={{ telegram_token }}" -e "healthcheck_uuid={{ healthcheck_uuid }}"
+
+- name: ansible setup | remove home directory
+  tags: always,ansible
+  file:
+    path: /home/ansible
+    state: absent
+
+# TODO: task to send files
+# dconf dump / > /tmp/dconf.dump
+# (??? config files)
+# send to telegram or to git repo
+# make something to check diffs
+#   -> temporary | then make something to find out how to put it in ansible
+#       -> configs like chrome, stremio, vscode, etc...

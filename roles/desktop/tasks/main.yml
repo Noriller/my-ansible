@@ -1,0 +1,6 @@
+- name: desktop | configure desktop (defaults, configs, shortcuts...)
+  tags: config
+  block:
+    - import_tasks: roles/desktop/tasks/user/setup.yml
+  rescue:
+    - set_fact: task_failed=true
