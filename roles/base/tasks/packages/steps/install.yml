@@ -70,4 +70,5 @@
       # stuff I want
       - com.stremio.Stremio
       - com.calibre_ebook.calibre
+      - com.dropbox.Client
     state: present
