@@ -86,13 +86,23 @@
     mode: 0644
     force: False
 
+- name: users | {{ user_login }} | copy exec bash
+  tags: user_config
+  template:
+    src: templates/chrome.main.sh.j2
+    dest: /usr/local/bin/chrome.main.sh
+    owner: root
+    group: root
+    mode: 0644
+    force: False
+
 - name: users | {{ user_login }} | making main chrome available for alternatives
   tags: user_config
-  shell: update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/share/applications/google-chrome.main.desktop 200
+  shell: update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/local/bin/chrome.main.sh 500
 
 - name: users | {{ user_login }} | making main chrome default
   tags: user_config
-  shell: update-alternatives --set x-www-browser /usr/share/applications/google-chrome.main.desktop
+  shell: update-alternatives --set x-www-browser /usr/local/bin/chrome.main.sh
 
 # for most of the ubuntu config,
 # start from a clean install and create a "dconf dump / > dump-before.txt"
