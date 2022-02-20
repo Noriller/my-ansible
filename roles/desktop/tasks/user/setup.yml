@@ -197,23 +197,23 @@
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/Utilities
         key_value:
-          - { key: "apps", value: "['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop', 'p7zip-desktop_p7zip-desktop.desktop', 'gnome-language-selector.desktop', 'okular_org.kde.okular.desktop', 'com.calibre_ebook.calibre.ebook-edit.desktop', 'com.calibre_ebook.calibre.ebook-viewer.desktop', 'com.calibre_ebook.calibre.lrfviewer.desktop']" }
+          - { key: "apps", value: "['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop', 'p7zip-desktop_p7zip-desktop.desktop', 'gnome-language-selector.desktop', 'okular_org.kde.okular.desktop', 'com.calibre_ebook.calibre.ebook-edit.desktop', 'com.calibre_ebook.calibre.ebook-viewer.desktop', 'com.calibre_ebook.calibre.lrfviewer.desktop', 'google-chrome.desktop', 'nvidia-settings.desktop', 'firefox.desktop']" }
           - { key: "categories", value: "['X-GNOME-Utilities']" }
           - { key: "excluded-apps", value: "['org.gnome.Terminal.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'software-properties-gtk.desktop', 'update-manager.desktop', 'org.gnome.tweaks.desktop', 'snap-store_ubuntu-software.desktop', 'gnome-session-properties.desktop', 'org.gnome.Software.desktop']" }
           - { key: "name", value: "'Stuff'" }
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/a480f079-0654-4928-b577-f029fae32c3d
         key_value:
-          - { key: "apps", value: "['org.qbittorrent.qBittorrent.desktop', 'jdownloader2_JDownloader.desktop', 'firefox.desktop', 'com.stremio.Stremio.desktop']" }
+          - { key: "apps", value: "['org.qbittorrent.qBittorrent.desktop', 'jdownloader2_JDownloader.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.second.desktop']" }
           - { key: "name", value: "'Internet'" }
       - base_path: org/gnome/desktop/app-folders/folders/c23879e7-4c06-4b24-8633-988a07233d4c
         key_value:
-          - { key: "apps", value: "['org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'org.gnome.tweaks.desktop']" }
+          - { key: "apps", value: "['org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'org.gnome.tweaks.desktop', 'grub-customizer.desktop']" }
           - { key: "name", value: "'Utils'" }
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/f1c1739c-e90a-4f02-8c07-9057cdac1aca
         key_value:
-          - { key: "apps", value: "['org.gnome.Terminal.desktop', 'code_code.desktop', 'google-chrome.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'org.gnome.Nautilus.desktop']" }
+          - { key: "apps", value: "['org.gnome.Terminal.desktop', 'code_code.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.main.desktop']" }
           - { key: "name", value: "'_DEV_'" }
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/calendar
@@ -389,6 +389,9 @@
           - { key: "enable-active-window", value: "false"}
           - { key: "enable-intellihide", value: "false"}
           - { key: "hot-corner", value: "false"}
+      - base_path: org/gnome/gedit/preferences/editor
+        key_value:
+          - { key: "scheme", value: "'cobalt'" }
   dconf:
     key: "/{{ item.0.base_path }}/{{ item.1.key }}"
     value: "{{ item.1.value }}"
