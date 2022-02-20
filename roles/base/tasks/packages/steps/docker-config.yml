@@ -6,5 +6,5 @@
 - name: packages | docker | Add user to "docker" group
   user:
     name: "{{ user_login }}"
-    group: docker
+    groups: docker
     append: yes
