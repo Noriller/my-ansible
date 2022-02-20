@@ -61,6 +61,7 @@
     name:
       # dev stuff
       - code
+      - node
     classic: true
     state: present
 
