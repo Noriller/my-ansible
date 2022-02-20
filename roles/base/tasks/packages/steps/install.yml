@@ -21,7 +21,7 @@
       - gnome-shell-extension-prefs
       - ttf-mscorefonts-installer
       - default-jre
-      - install default-jdk
+      - default-jdk
       # dev stuff
       - docker-ce
       - docker-ce-cli
