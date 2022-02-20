@@ -6,15 +6,15 @@
     gnome_extensions:
       - id: 779     # clipboard-indicator
       - id: 7       # removable-drive-menu
-      - id: 3088    # extension-list
+      # - id: 3088    # extension-list
       - id: 6       # applications-menu
-      - id: 120     # system-monitor
+      # - id: 120     # system-monitor
       - id: 1036    # extensions
       - id: 841     # freon
-      - id: 323     # multiple-monitor-panels
-      - id: 307     # dash-to-dock
+      # - id: 323     # multiple-monitor-panels
+      # - id: 307     # dash-to-dock
       - id: 1160    # dash-to-panel
       - id: 906     # sound-output-device-chooser
-      - id: 1319    # gsconnect
+      # - id: 1319    # gsconnect
     gnome_user: '{{ user_login }}'
     gtk_version: 3.0
