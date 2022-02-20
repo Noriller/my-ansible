@@ -17,6 +17,11 @@
       - laptop-mode-tools
       - gnome-tweaks
       - lm-sensors
+      - gnome-shell-extension-autohidetopbar
+      - gnome-shell-extension-prefs
+      - ttf-mscorefonts-installer
+      - default-jre
+      - install default-jdk
       # dev stuff
       - docker-ce
       - docker-ce-cli
