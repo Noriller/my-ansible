@@ -204,7 +204,7 @@
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/a480f079-0654-4928-b577-f029fae32c3d
         key_value:
-          - { key: "apps", value: "['org.qbittorrent.qBittorrent.desktop', 'jdownloader2_JDownloader.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.second.desktop']" }
+          - { key: "apps", value: "['org.qbittorrent.qBittorrent.desktop', 'jdownloader2_JDownloader.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.second.desktop', 'com.dropbox.Client.desktop']" }
           - { key: "name", value: "'Internet'" }
       - base_path: org/gnome/desktop/app-folders/folders/c23879e7-4c06-4b24-8633-988a07233d4c
         key_value:
