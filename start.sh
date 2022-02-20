@@ -34,8 +34,8 @@ echo "Confirm the information:"
 echo "Username: $user_login"
 echo "Git Name: $git_user_name"
 echo "Git Email: $git_user_email"
-echo "Telegram Chat ID: $telegram_chat_id"
-echo "Telegram Token: $telegram_token"
+# echo "Telegram Chat ID: $telegram_chat_id"
+# echo "Telegram Token: $telegram_token"
 echo "Healthcheck UUID: $healthcheck_uuid"
 
 read -e -p "Confirm? [Y/n] " -i 'Y' response
