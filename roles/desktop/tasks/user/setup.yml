@@ -224,7 +224,7 @@
           - { key: "application-children", value: "['org-gnome-shell-extensions', 'org-gnome-software', 'com-stremio-stremio']" }
       - base_path: org/gnome/desktop/notifications/application/com-stremio-stremio
         key_value:
-          - { key: "application-id", value="'com.stremio.Stremio.desktop'" }
+          - { key: "application-id", value: "'com.stremio.Stremio.desktop'" }
       - base_path: org/gnome/desktop/notifications/application/org-gnome-shell-extensions
         key_value:
           - { key: "application-id", value: "'org.gnome.Shell.Extensions.desktop'" }
