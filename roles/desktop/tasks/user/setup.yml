@@ -255,7 +255,7 @@
           - { key: "hot-keys", value: "false" }
           - { key: "icon-size-fixed", value: "false" }
           - { key: "intellihide-mode", value: "false" }
-          - { key: "isolate-monitors", value: "true" }
+          - { key: "isolate-monitors", value: "false" }
           - { key: "isolate-workspaces", value: "true" }
           - { key: "max-alpha", value: "0.80000000000000004" }
           - { key: "middle-click-action", value: "'launch'" }
@@ -289,7 +289,7 @@
           - { key: "group-apps-use-launchers", value: "false" }
           - { key: "hotkeys-overlay-combo", value: "'TEMPORARILY'" }
           - { key: "intellihide", value: "false" }
-          - { key: "isolate-monitors", value: "true" }
+          - { key: "isolate-monitors", value: "false" }
           - { key: "isolate-workspaces", value: "true" }
           - { key: "multi-monitors", value: "true" }
           - { key: "overview-click-to-exit", value: "true" }
