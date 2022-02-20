@@ -86,6 +86,10 @@
     mode: 0644
     force: False
 
+- name: users | {{ user_login }} | making chrome available for alternatives
+  tags: user_config
+  shell: update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/share/applications/google-chrome.desktop 500
+
 - name: users | {{ user_login }} | making main chrome default
   tags: user_config
   shell: update-alternatives --set x-www-browser /usr/share/applications/google-chrome.desktop
