@@ -40,9 +40,9 @@
       changed_when: False
       when: healthcheck_uuid is defined
 
-- name: ansible job failed, clear cache later on to trigger another provision run
-  become: yes
-  at:
-    command: "if ! pgrep -f ansible-pull >/dev/null; then rm -rf /home/ansible/.ansible; fi"
-    count: 60
-    units: minutes
+# - name: ansible job failed, clear cache later on to trigger another provision run
+#   become: yes
+#   at:
+#     command: "if ! pgrep -f ansible-pull >/dev/null; then rm -rf /home/ansible/.ansible; fi"
+#     count: 60
+#     units: minutes
