@@ -64,6 +64,8 @@ sudo apt upgrade -y
 # install ansible and git
 sudo apt install ansible git -y
 
+echo "ansible-pull -U 'https://github.com/Noriller/my-ansible.git' -e \"user_login=$user_login\" -e \"cron_job_name='first install'\" -e \"git_user_name=$git_user_name\" -e \"git_user_email=$git_user_email\" -e \"telegram_chat_id=$telegram_chat_id\" -e \"telegram_token=$telegram_token\" -e \"healthcheck_uuid=$healthcheck_uuid\"" > ~/pull-copy-paste.txt
+
 # ansible pull the playbook
 ansible-pull -U 'https://github.com/Noriller/my-ansible.git' \
   -e "user_login=$user_login" \
