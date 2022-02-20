@@ -86,23 +86,9 @@
     mode: 0644
     force: False
 
-- name: users | {{ user_login }} | copy exec bash
-  tags: user_config
-  template:
-    src: templates/chrome.main.sh.j2
-    dest: /usr/local/bin/chrome.main.sh
-    owner: root
-    group: root
-    mode: 0644
-    force: False
-
-- name: users | {{ user_login }} | making main chrome available for alternatives
-  tags: user_config
-  shell: update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/local/bin/chrome.main.sh 500
-
 - name: users | {{ user_login }} | making main chrome default
   tags: user_config
-  shell: update-alternatives --set x-www-browser /usr/local/bin/chrome.main.sh
+  shell: update-alternatives --set x-www-browser /usr/share/applications/google-chrome.desktop
 
 # for most of the ubuntu config,
 # start from a clean install and create a "dconf dump / > dump-before.txt"
@@ -215,7 +201,7 @@
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/Utilities
         key_value:
-          - { key: "apps", value: "['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop', 'p7zip-desktop_p7zip-desktop.desktop', 'gnome-language-selector.desktop', 'okular_org.kde.okular.desktop', 'com.calibre_ebook.calibre.ebook-edit.desktop', 'com.calibre_ebook.calibre.ebook-viewer.desktop', 'com.calibre_ebook.calibre.lrfviewer.desktop', 'google-chrome.desktop', 'nvidia-settings.desktop', 'firefox.desktop']" }
+          - { key: "apps", value: "['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop', 'p7zip-desktop_p7zip-desktop.desktop', 'gnome-language-selector.desktop', 'okular_org.kde.okular.desktop', 'com.calibre_ebook.calibre.ebook-edit.desktop', 'com.calibre_ebook.calibre.ebook-viewer.desktop', 'com.calibre_ebook.calibre.lrfviewer.desktop', 'nvidia-settings.desktop', 'firefox.desktop']" }
           - { key: "categories", value: "['X-GNOME-Utilities']" }
           - { key: "excluded-apps", value: "['org.gnome.Terminal.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'software-properties-gtk.desktop', 'update-manager.desktop', 'org.gnome.tweaks.desktop', 'snap-store_ubuntu-software.desktop', 'gnome-session-properties.desktop', 'org.gnome.Software.desktop']" }
           - { key: "name", value: "'Stuff'" }
@@ -231,7 +217,7 @@
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/f1c1739c-e90a-4f02-8c07-9057cdac1aca
         key_value:
-          - { key: "apps", value: "['org.gnome.Terminal.desktop', 'code_code.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.main.desktop']" }
+          - { key: "apps", value: "['org.gnome.Terminal.desktop', 'code_code.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop']" }
           - { key: "name", value: "'_DEV_'" }
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/calendar
@@ -264,7 +250,7 @@
           - { key: "disable-user-extensions", value: "false" }
           - { key: "disabled-extensions", value: "['extension-list@tu.berry', 'desktop-icons@csoriano']"}
           - { key: "enabled-extensions", value: "['clipboard-indicator@tudmotu.com', 'dash-to-panel@jderose9.github.com', 'freon@UshakovVasilii_Github.yahoo.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'sound-output-device-chooser@kgshank.net', 'system-monitor@paradoxxx.zero.gmail.com', 'extra-panels@darkxst.feathertop.org', 'extensions@abteil.org', 'ubuntu-appindicators@ubuntu.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-dock@ubuntu.com']" }
-          - { key: "favorite-apps", value: "['gnome-control-center.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.main.desktop', 'google-chrome.second.desktop', 'code_code.desktop']" }
+          - { key: "favorite-apps", value: "['gnome-control-center.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.desktop', 'google-chrome.second.desktop', 'code_code.desktop']" }
           - { key: "had-bluetooth-devices-setup", value: "true" }
       - base_path: org/gnome/shell/extensions/clipboard-indicator
         key_value:
