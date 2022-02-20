@@ -4,7 +4,7 @@ Version=1.0
 Type=Application
 Terminal=false
 Icon[en_US]=google-chrome
-Exec=google-chrome --profile-directory="Profile 1"
+Exec=google-chrome-stable --class=/home/noriller/.config/google-chrome/Profile\ 1 --user-data-dir=/home/noriller/.config/google-chrome/Profile\ 1
 Name[en_US]=Chrome-Anime
 Name=Chrome-Anime
 Icon=google-chrome
