@@ -4,3 +4,4 @@
 - import_tasks: roles/base/tasks/packages/steps/dracula-terminal.yml
 - import_tasks: roles/base/tasks/packages/steps/gnome-extensions.yml
 - import_tasks: roles/base/tasks/packages/steps/ubuntu-drivers.yml
+- import_tasks: roles/base/tasks/packages/steps/docker-config.yml

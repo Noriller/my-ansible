@@ -1,0 +1,10 @@
+- name: packages | docker | Create "docker" group
+  group:
+    name: docker
+    state: present
+
+- name: packages | docker | Add user to "docker" group
+  user:
+    name: "{{ user_login }}"
+    group: docker
+    append: yes
