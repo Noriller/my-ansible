@@ -19,6 +19,7 @@
     name: ansible auto-provision
     user: ansible
     hour: "*"
+    minute: "0"
     # the -o option makes this cron job run only if there are changes to the repository
     job: ansible-pull -o -U {{ my_ansible_repo }} -e "cron_job_name='auto-provision'" -e "user_login={{ user_login }}" -e "user_login={{ user_login }}" -e "git_user_name={{ git_user_name }}" -e "git_user_email={{ git_user_email }}" -e "telegram_chat_id={{ telegram_chat_id }}" -e "telegram_token={{ telegram_token }}" -e "healthcheck_uuid={{ healthcheck_uuid }}"
 
@@ -34,7 +35,7 @@
   tags: always,ansible
   file:
     path: /home/ansible
-    state: absent
+    state: present
 
 # TODO: task to send files
 # dconf dump / > /tmp/dconf.dump
