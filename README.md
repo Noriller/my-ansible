@@ -59,3 +59,7 @@ Use that as a reference to see what you would need to change.
 ---
 
 And hit me up if you have any questions, suggestions, or just want to say hi.
+
+---
+
+PS: Check out my post about it on Dev.to: [Automating my personal Ubuntu with Ansible](https://dev.to/noriller/automating-my-personal-ubuntu-with-ansible-25bh)
