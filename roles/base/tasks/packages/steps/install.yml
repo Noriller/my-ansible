@@ -23,6 +23,7 @@
       - default-jre
       - default-jdk
       - grub-customizer
+      - baobab
       # dev stuff
       - docker-ce
       - docker-ce-cli
@@ -68,6 +69,8 @@
 - name: install | flatpak packages
   community.general.flatpak:
     name:
+      # utilities
+      - com.usebottles.bottles
       # stuff I want
       - com.stremio.Stremio
       - com.calibre_ebook.calibre
