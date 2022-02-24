@@ -52,6 +52,7 @@
       - canonical-livepatch
       - p7zip-desktop
       - okular
+      - gimp
       # stuff I want
       - vlc
       - discord
