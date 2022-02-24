@@ -118,7 +118,7 @@
           - { key: "clock-show-seconds", value: "true" }
           - { key: "clock-show-weekday", value: "true" }
           - { key: "enable-animations", value: "false" }
-          - { key: "enable-hot-corners", value: "true" }
+          - { key: "enable-hot-corners", value: "false" }
           - { key: "show-battery-percentage", value: "true" }
           - { key: "font-name", value: "'Arial 11'" }
       - base_path: org/gnome/desktop/media-handling
@@ -178,9 +178,9 @@
           - { key: "show-size-column", value: "true" }
           - { key: "show-type-column", value: "true" }
           - { key: "sidebar-width", value: "161" }
-          - { key: "sort-column", value: "'name'" }
+          - { key: "sort-column", value: "'modified'" }
           - { key: "sort-directories-first", value: "true" }
-          - { key: "sort-order", value: "'ascending'" }
+          - { key: "sort-order", value: "'descending'" }
           - { key: "type-format", value: "'category'" }
       - base_path: org/gnome/desktop/app-folders
         key_value:
@@ -200,14 +200,14 @@
           - { key: "name", value: "'Office'" }
       - base_path: org/gnome/desktop/app-folders/folders/9c34504b-2b9d-4ed5-b82d-cdc82be33899
         key_value:
-          - { key: "apps", value: "['software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'gnome-session-properties.desktop', 'update-manager.desktop', 'software-properties-gtk.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Software.desktop']" }
+          - { key: "apps", value: "['software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'gnome-session-properties.desktop', 'update-manager.desktop', 'software-properties-gtk.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Software.desktop', 'com.usebottles.bottles.desktop']" }
           - { key: "name", value: "'Installers'" }
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/Utilities
         key_value:
-          - { key: "apps", value: "['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop', 'p7zip-desktop_p7zip-desktop.desktop', 'gnome-language-selector.desktop', 'okular_org.kde.okular.desktop', 'com.calibre_ebook.calibre.ebook-edit.desktop', 'com.calibre_ebook.calibre.ebook-viewer.desktop', 'com.calibre_ebook.calibre.lrfviewer.desktop', 'nvidia-settings.desktop', 'firefox.desktop', 'google-chrome.main.desktop']" }
+          - { key: "apps", value: "['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop', 'p7zip-desktop_p7zip-desktop.desktop', 'gnome-language-selector.desktop', 'okular_org.kde.okular.desktop', 'com.calibre_ebook.calibre.ebook-edit.desktop', 'com.calibre_ebook.calibre.ebook-viewer.desktop', 'com.calibre_ebook.calibre.lrfviewer.desktop', 'nvidia-settings.desktop', 'firefox.desktop', 'google-chrome.main.desktop']" }
           - { key: "categories", value: "['X-GNOME-Utilities']" }
-          - { key: "excluded-apps", value: "['org.gnome.Terminal.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'software-properties-gtk.desktop', 'update-manager.desktop', 'org.gnome.tweaks.desktop', 'snap-store_ubuntu-software.desktop', 'gnome-session-properties.desktop', 'org.gnome.Software.desktop']" }
+          - { key: "excluded-apps", value: "['org.gnome.Terminal.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'software-properties-gtk.desktop', 'update-manager.desktop', 'org.gnome.tweaks.desktop', 'snap-store_ubuntu-software.desktop', 'gnome-session-properties.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Software.desktop']" }
           - { key: "name", value: "'Stuff'" }
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/a480f079-0654-4928-b577-f029fae32c3d
@@ -216,7 +216,7 @@
           - { key: "name", value: "'Internet'" }
       - base_path: org/gnome/desktop/app-folders/folders/c23879e7-4c06-4b24-8633-988a07233d4c
         key_value:
-          - { key: "apps", value: "['org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'org.gnome.tweaks.desktop', 'grub-customizer.desktop']" }
+          - { key: "apps", value: "['org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'org.gnome.tweaks.desktop', 'grub-customizer.desktop', 'org.gnome.baobab.desktop']" }
           - { key: "name", value: "'Utils'" }
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/f1c1739c-e90a-4f02-8c07-9057cdac1aca
@@ -229,7 +229,7 @@
           - { key: "show-weekdate", value: "true" }
       - base_path: org/gnome/desktop/notifications
         key_value:
-          - { key: "application-children", value: "['org-gnome-shell-extensions', 'org-gnome-software', 'com-stremio-stremio']" }
+          - { key: "application-children", value: "['org-gnome-shell-extensions', 'org-gnome-software', 'com-stremio-stremio', 'discord-discord', 'org-gnome-evolution-alarm-notify', 'org-gnome-terminal', 'thunderbird', 'google-chrome', 'com-usebottles-bottles', 'org-gnome-nautilus', 'org-gnome-baobab', 'darktable']" }
       - base_path: org/gnome/desktop/notifications/application/com-stremio-stremio
         key_value:
           - { key: "application-id", value: "'com.stremio.Stremio.desktop'" }
@@ -261,6 +261,8 @@
           - { key: "cache-only-favorites", value: "true" }
           - { key: "move-item-first", value: "true" }
           - { key: "strip-text", value: "false" }
+          - { key: "display-mode", value: 0 }
+          - { key: "history-size", value: 50 }
       - base_path: org/gnome/shell/extensions/dash-to-dock
         key_value:
           - { key: "animate-show-apps", value: "false" }
@@ -400,6 +402,21 @@
       - base_path: org/gnome/gedit/preferences/editor
         key_value:
           - { key: "scheme", value: "'cobalt'" }
+      - base_path: org/gnome/settings-daemon/plugins/media-keys
+        key_value:
+          - { key: "area-screenshot-clip", value: "['<Shift><Super>s']" }
+          - { key: "custom-keybindings", value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']" }
+          - { key: "terminal", value: "['<Super>q']" }
+      - base_path: org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0
+        key_value:
+          - { key: "binding", value: "'<Super>F4'" }
+          - { key: "command", value: "'gnome-session-quit --power-off'" }
+          - { key: "name", value: "'Quick GUI Power Off'" }
+      - base_path: org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1
+        key_value:
+          - { key: "binding", value: "'<Super>e'" }
+          - { key: "command", value: "'nautilus'" }
+          - { key: "name", value: "'Open Files'" }
   dconf:
     key: "/{{ item.0.base_path }}/{{ item.1.key }}"
     value: "{{ item.1.value }}"
