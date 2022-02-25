@@ -28,6 +28,7 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
+      - docker-compose
       # stuff i want
       - gnome-system-monitor
       - google-chrome-stable
