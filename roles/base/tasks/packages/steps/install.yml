@@ -14,6 +14,7 @@
       - lsb-release
       - dconf-cli
       - python3-psutil
+      - python3-pip
       - laptop-mode-tools
       - gnome-tweaks
       - lm-sensors
@@ -28,7 +29,6 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
-      - docker-compose
       # stuff i want
       - gnome-system-monitor
       - google-chrome-stable
@@ -77,4 +77,11 @@
       - com.stremio.Stremio
       - com.calibre_ebook.calibre
       - com.dropbox.Client
+    state: present
+
+
+- name: install | pip packages
+  pip:
+    name:
+      - docker-compose
     state: present
