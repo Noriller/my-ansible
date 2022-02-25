@@ -64,7 +64,7 @@
     name:
       # dev stuff
       - code
-      - node
+      # - node
     classic: true
     state: present
 
@@ -85,3 +85,10 @@
     name:
       - docker-compose
     state: present
+
+- name: install | nvm
+  become_user: '{{ user_login }}'
+  shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  args:
+    creates: "/home/{{ user_login }}/.nvm/nvm.sh"
