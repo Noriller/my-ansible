@@ -86,9 +86,13 @@
       - docker-compose
     state: present
 
-- name: install | nvm
+- name: install | install nvm
   become_user: '{{ user_login }}'
   shell: >
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
   args:
     creates: "/home/{{ user_login }}/.nvm/nvm.sh"
+
+- name: install | install lts node
+  become_user: '{{ user_login }}'
+  shell: nvm install --lts
