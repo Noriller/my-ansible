@@ -102,5 +102,5 @@
   rescue:
     - name: install | nvm | bash debug
       debug:
-        msg: "{{ nvm_install_bash.stdout }}"
+        msg: "{{ nvm_install_bash.stdout | to_nice_json }}"
       when: nvm_install_bash.rc != 0
