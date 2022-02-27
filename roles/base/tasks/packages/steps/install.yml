@@ -93,7 +93,27 @@
   args:
     creates: "/home/{{ user_login }}/.nvm/nvm.sh"
 
-- name: install | install lts node
-  become: false
+- name: install | try to install lts node if available in bash
   become_user: '{{ user_login }}'
-  shell: nvm install --lts
+  block:
+    - name: install | nvm | bash lts node
+      shell: nvm install --lts
+      args:
+        executable: /bin/bash
+      register: nvm_install_bash
+
+    - name: install | nvm | zsh lts node
+      shell: nvm install --lts
+      args:
+        executable: /bin/zsh
+      register: nvm_install_zsh
+  rescue:
+    - name: install | nvm | bash debug
+      debug:
+        msg: "{{ nvm_install_bash.stdout }}"
+      when: nvm_install_bash.rc != 0
+
+    - name: install | nvm | zsh debug
+      debug:
+        msg: "{{ nvm_install_zsh.stdout }}"
+      when: nvm_install_zsh.rc != 0
