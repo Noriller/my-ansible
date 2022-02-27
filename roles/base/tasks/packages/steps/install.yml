@@ -94,5 +94,6 @@
     creates: "/home/{{ user_login }}/.nvm/nvm.sh"
 
 - name: install | install lts node
+  become: false
   become_user: '{{ user_login }}'
   shell: nvm install --lts
