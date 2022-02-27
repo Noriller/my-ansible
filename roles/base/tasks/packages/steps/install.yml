@@ -98,6 +98,8 @@
   block:
     - name: install | nvm | bash lts node
       shell: nvm install --lts
+      args:
+        executable: /bin/bash
       register: nvm_install_bash
   rescue:
     - name: install | nvm | bash debug
@@ -109,7 +111,9 @@
   become_user: '{{ user_login }}'
   block:
     - name: install | nvm | zsh lts node
-      shell: zsh | nvm install --lts
+      shell: nvm install --lts
+      args:
+        executable: /bin/zsh
       register: nvm_install_zsh
   rescue:
     - name: install | nvm | zsh debug
