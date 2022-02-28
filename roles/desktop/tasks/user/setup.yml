@@ -387,7 +387,7 @@
           - { key: "gpu-utility", value: "'bumblebee-nvidia-smi'"}
           - { key: "group-temperature", value: "false"}
           - { key: "group-voltage", value: "true"}
-          - { key: "hot-sensors", value: "['__average__', '__max__', 'in0']"}
+          - { key: "hot-sensors", value: "['__average__', '__max__']"}
           - { key: "panel-box-index", value: "0"}
           - { key: "position-in-panel", value: "'right'"}
           - { key: "show-decimal-value", value: "false"}
