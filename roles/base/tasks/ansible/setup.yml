@@ -29,7 +29,7 @@
     name: ansible update on boot
     user: ansible
     special_time: reboot
-    job: ansible-pull -U {{ my_ansible_repo }} --tags "always" -e "cron_job_name='updates'" -e "user_login={{ user_login }}" -e "user_login={{ user_login }}" -e "git_user_name={{ git_user_name }}" -e "git_user_email={{ git_user_email }}" -e "telegram_chat_id={{ telegram_chat_id }}" -e "telegram_token={{ telegram_token }}" -e "healthcheck_uuid={{ healthcheck_uuid }}" 2>> /home/ansible/ansible-pull.error.log >>/home/ansible/ansible-pull.success.log
+    job: sleep 300 && ansible-pull -U {{ my_ansible_repo }} --tags "always" -e "cron_job_name='updates'" -e "user_login={{ user_login }}" -e "user_login={{ user_login }}" -e "git_user_name={{ git_user_name }}" -e "git_user_email={{ git_user_email }}" -e "telegram_chat_id={{ telegram_chat_id }}" -e "telegram_token={{ telegram_token }}" -e "healthcheck_uuid={{ healthcheck_uuid }}" 2>> /home/ansible/ansible-pull.error.log >>/home/ansible/ansible-pull.success.log
 
 # TODO: task to send files
 # dconf dump / > /tmp/dconf.dump
