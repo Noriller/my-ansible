@@ -121,6 +121,7 @@
           - { key: "enable-hot-corners", value: "false" }
           - { key: "show-battery-percentage", value: "true" }
           - { key: "font-name", value: "'Arial 11'" }
+          - { key: "toolkit-accessibility", value: "false" }
       - base_path: org/gnome/desktop/media-handling
         key_value:
           - { key: "autorun-never", value: "true" }
@@ -229,7 +230,7 @@
           - { key: "show-weekdate", value: "true" }
       - base_path: org/gnome/desktop/notifications
         key_value:
-          - { key: "application-children", value: "['org-gnome-shell-extensions', 'org-gnome-software', 'com-stremio-stremio', 'discord-discord', 'org-gnome-evolution-alarm-notify', 'org-gnome-terminal', 'thunderbird', 'google-chrome', 'com-usebottles-bottles', 'org-gnome-nautilus', 'org-gnome-baobab', 'darktable', 'gimp-gimp']" }
+          - { key: "application-children", value: "['org-gnome-shell-extensions', 'org-gnome-software', 'com-stremio-stremio', 'discord-discord', 'org-gnome-evolution-alarm-notify', 'org-gnome-terminal', 'thunderbird', 'google-chrome', 'com-usebottles-bottles', 'org-gnome-nautilus', 'org-gnome-baobab', 'darktable', 'gimp-gimp', 'update-manager']" }
       - base_path: org/gnome/desktop/notifications/application/com-stremio-stremio
         key_value:
           - { key: "application-id", value: "'com.stremio.Stremio.desktop'" }
@@ -374,8 +375,10 @@
           - { key: "selected-color", value: "(true, 0.36078431372549019, 0.20784313725490197, 0.40000000000000002, 1.0)" }
       - base_path: org/gnome/desktop/wm/keybindings
         key_value:
-          - { key: "switch-to-workspace-down", value: "['<Super>Page_Down', '<Control><Super>Down']"}
-          - { key: "switch-to-workspace-up", value: "['<Super>Page_Up', '<Control><Super>Up']"}
+          - { key: "switch-to-workspace-down", value: "['<Super>Page_Down', '<Control><Super>Down']" }
+          - { key: "switch-to-workspace-up", value: "['<Super>Page_Up', '<Control><Super>Up']" }
+          - { key: "switch-to-workspace-left", value: "@as []" }
+          - { key: "switch-to-workspace-right", value: "@as []" }
       - base_path: org/gnome/gnome-system-monitor
         key_value:
           - { key: "current-tab", value: "'resources'"}
@@ -417,12 +420,16 @@
           - { key: "binding", value: "'<Super>e'" }
           - { key: "command", value: "'nautilus'" }
           - { key: "name", value: "'Open Files'" }
+      - base_path: com/ubuntu/update-notifier
+        key_value:
+          - { key: "regular-auto-launch-interval", value:"0" }
   dconf:
     key: "/{{ item.0.base_path }}/{{ item.1.key }}"
     value: "{{ item.1.value }}"
   with_subelements:
     - '{{ locations }}'
     - key_value
+
 
 
 
