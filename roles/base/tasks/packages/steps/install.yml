@@ -32,8 +32,6 @@
       # stuff i want
       - gnome-system-monitor
       - google-chrome-stable
-      - darktable
-      - krita
       - qbittorrent
       - thunderbird
     state: latest
@@ -53,7 +51,6 @@
       - canonical-livepatch
       - p7zip-desktop
       - okular
-      - gimp
       # stuff I want
       - vlc
       - discord
@@ -64,7 +61,6 @@
     name:
       # dev stuff
       - code
-      # - node
     classic: true
     state: present
 
@@ -73,6 +69,18 @@
     name:
       # utilities
       - com.usebottles.bottles
+      # design stuff
+      - org.darktable.Darktable
+      - org.kde.krita
+      - org.gimp.GIMP
+      - org.gimp.GIMP.Manual
+      - org.gimp.GIMP.Plugin.BIMP
+      - org.gimp.GIMP.Plugin.FocusBlur
+      - org.gimp.GIMP.Plugin.Fourier
+      - org.gimp.GIMP.Plugin.GMic
+      - org.gimp.GIMP.Plugin.Lensfun
+      - org.gimp.GIMP.Plugin.LiquidRescale
+      - org.gimp.GIMP.Plugin.Resynthesizer
       # stuff I want
       - com.stremio.Stremio
       - com.calibre_ebook.calibre
