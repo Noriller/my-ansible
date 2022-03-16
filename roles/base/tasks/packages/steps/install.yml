@@ -73,14 +73,14 @@
       - org.darktable.Darktable
       - org.kde.krita
       - org.gimp.GIMP
-      - org.gimp.GIMP.Manual
-      - org.gimp.GIMP.Plugin.BIMP
-      - org.gimp.GIMP.Plugin.FocusBlur
-      - org.gimp.GIMP.Plugin.Fourier
-      - org.gimp.GIMP.Plugin.GMic
-      - org.gimp.GIMP.Plugin.Lensfun
-      - org.gimp.GIMP.Plugin.LiquidRescale
-      - org.gimp.GIMP.Plugin.Resynthesizer
+      - org.gimp.GIMP.Manual/x86_64/2.10
+      - org.gimp.GIMP.Plugin.BIMP/x86_64/2-40
+      - org.gimp.GIMP.Plugin.FocusBlur/x86_64/2-40
+      - org.gimp.GIMP.Plugin.Fourier/x86_64/2-40
+      - org.gimp.GIMP.Plugin.GMic/x86_64/2-40
+      - org.gimp.GIMP.Plugin.Lensfun/x86_64/2-40
+      - org.gimp.GIMP.Plugin.LiquidRescale/x86_64/2-40
+      - org.gimp.GIMP.Plugin.Resynthesizer/x86_64/2-40
       # stuff I want
       - com.stremio.Stremio
       - com.calibre_ebook.calibre
