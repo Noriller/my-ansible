@@ -422,12 +422,12 @@
           - { key: "name", value: "'Open Files'" }
       - base_path: com/ubuntu/update-notifier
         key_value:
-          - { key: "regular-auto-launch-interval", value:"0" }
+          - { key: "regular-auto-launch-interval", value: "0" }
   dconf:
     key: "/{{ item.0.base_path }}/{{ item.1.key }}"
     value: "{{ item.1.value }}"
   with_subelements:
-    - '{{ locations }}'
+    - "{{ locations }}"
     - key_value
 
 
