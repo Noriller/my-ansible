@@ -71,6 +71,7 @@
       - com.usebottles.bottles
       # design stuff
       - org.darktable.Darktable
+      - com.rawtherapee.RawTherapee
       - org.kde.krita
       - org.gimp.GIMP
       - org.gimp.GIMP.Manual/x86_64/2.10
