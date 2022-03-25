@@ -192,7 +192,7 @@
           - { key: "name", value: "'System'" }
       - base_path: org/gnome/desktop/app-folders/folders/23c8f41c-9db1-49b9-a143-767b968112b6
         key_value:
-          - { key: "apps", value: "['org.kde.krita.desktop', 'obs-studio_obs-studio.desktop', 'darktable.desktop', 'vlc_vlc.desktop', 'com.calibre_ebook.calibre.desktop', 'gimp_gimp.desktop']" }
+          - { key: "apps", value: "['org.kde.krita.desktop', 'obs-studio_obs-studio.desktop', 'darktable.desktop', 'vlc_vlc.desktop', 'com.calibre_ebook.calibre.desktop', 'gimp_gimp.desktop', 'com.rawtherapee.RawTherapee.desktop', 'org.darktable.Darktable.desktop', 'org.gimp.GIMP.desktop', 'org.videolan.VLC.desktop']" }
           - { key: "name", value: "'Art'" }
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/4ae87e58-d11e-4f00-9cd2-300723cce986
@@ -230,7 +230,7 @@
           - { key: "show-weekdate", value: "true" }
       - base_path: org/gnome/desktop/notifications
         key_value:
-          - { key: "application-children", value: "['org-gnome-shell-extensions', 'org-gnome-software', 'com-stremio-stremio', 'discord-discord', 'org-gnome-evolution-alarm-notify', 'org-gnome-terminal', 'thunderbird', 'google-chrome', 'com-usebottles-bottles', 'org-gnome-nautilus', 'org-gnome-baobab', 'darktable', 'gimp-gimp', 'update-manager', 'org-darktable-darktable']" }
+          - { key: "application-children", value: "['org-gnome-shell-extensions', 'org-gnome-software', 'com-stremio-stremio', 'discord-discord', 'org-gnome-evolution-alarm-notify', 'org-gnome-terminal', 'thunderbird', 'google-chrome', 'com-usebottles-bottles', 'org-gnome-nautilus', 'org-gnome-baobab', 'darktable', 'gimp-gimp', 'update-manager', 'org-darktable-darktable', 'com-rawtherapee-rawtherapee']" }
       - base_path: org/gnome/desktop/notifications/application/com-stremio-stremio
         key_value:
           - { key: "application-id", value: "'com.stremio.Stremio.desktop'" }

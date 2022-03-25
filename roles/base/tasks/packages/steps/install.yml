@@ -52,7 +52,6 @@
       - p7zip-desktop
       - okular
       # stuff I want
-      - vlc
       - discord
     state: present
 
@@ -84,6 +83,7 @@
       - org.gimp.GIMP.Plugin.Resynthesizer/x86_64/2-40
       # stuff I want
       - com.stremio.Stremio
+      - org.videolan.VLC
       - com.calibre_ebook.calibre
       - com.dropbox.Client
     state: present
