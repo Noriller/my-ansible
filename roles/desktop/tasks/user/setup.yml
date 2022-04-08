@@ -228,15 +228,6 @@
       - base_path: org/gnome/desktop/calendar
         key_value:
           - { key: "show-weekdate", value: "true" }
-      - base_path: org/gnome/desktop/notifications
-        key_value:
-          - { key: "application-children", value: "['org-gnome-shell-extensions', 'org-gnome-software', 'com-stremio-stremio', 'discord-discord', 'org-gnome-evolution-alarm-notify', 'org-gnome-terminal', 'thunderbird', 'google-chrome', 'com-usebottles-bottles', 'org-gnome-nautilus', 'org-gnome-baobab', 'darktable', 'gimp-gimp', 'update-manager', 'org-darktable-darktable', 'com-rawtherapee-rawtherapee', 'onlyoffice-desktopeditors-onlyoffice-desktopeditors', 'gnome-network-panel', 'org-gnome-extensions-desktop']" }
-      - base_path: org/gnome/desktop/notifications/application/com-stremio-stremio
-        key_value:
-          - { key: "application-id", value: "'com.stremio.Stremio.desktop'" }
-      - base_path: org/gnome/desktop/notifications/application/org-gnome-shell-extensions
-        key_value:
-          - { key: "application-id", value: "'org.gnome.Shell.Extensions.desktop'" }
       - base_path: org/gnome/desktop/wm/preferences
         key_value:
           - { key: "action-middle-click-titlebar", value: "'lower'" }
