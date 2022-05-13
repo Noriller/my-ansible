@@ -93,6 +93,7 @@
   pip:
     name:
       - docker-compose
+      - speedtest-cli
     state: present
 
 - name: install | install nvm
