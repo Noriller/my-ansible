@@ -232,6 +232,7 @@
         key_value:
           - { key: "action-middle-click-titlebar", value: "'lower'" }
           - { key: "button-layout", value: "':minimize,maximize,close'" }
+          - { key: "num-workspaces", value: 2 }
       - base_path: org/gnome/mutter
         key_value:
           - { key: "center-new-windows", value: "true" }
