@@ -143,3 +143,9 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 eval `dircolors $HOME/.dir_colors/dircolors`
+
+if [ "$(pwd)" = "$HOME" ]; then
+  echo "Hello, ZA WARUDO."
+fi
+
+alias speed="speedtest --simple --no-upload"
