@@ -213,7 +213,7 @@
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/a480f079-0654-4928-b577-f029fae32c3d
         key_value:
-          - { key: "apps", value: "['org.qbittorrent.qBittorrent.desktop', 'jdownloader2_JDownloader.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.second.desktop', 'com.dropbox.Client.desktop']" }
+          - { key: "apps", value: "['org.qbittorrent.qBittorrent.desktop', 'jdownloader2_JDownloader.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.second.desktop', 'com.dropbox.Client.desktop', 'nordvpn.desktop']" }
           - { key: "name", value: "'Internet'" }
       - base_path: org/gnome/desktop/app-folders/folders/c23879e7-4c06-4b24-8633-988a07233d4c
         key_value:
@@ -222,7 +222,7 @@
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/app-folders/folders/f1c1739c-e90a-4f02-8c07-9057cdac1aca
         key_value:
-          - { key: "apps", value: "['org.gnome.Terminal.desktop', 'code_code.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop']" }
+          - { key: "apps", value: "['org.gnome.Terminal.desktop', 'code_code.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'org.gnome.Boxes.desktop', 'android-studio_android-studio.desktop']" }
           - { key: "name", value: "'_DEV_'" }
           - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/calendar
