@@ -51,8 +51,6 @@
       - canonical-livepatch
       - p7zip-desktop
       - okular
-      # dev stuff
-      - org.gnome.Boxes
       # stuff I want
       - discord
     state: present
@@ -89,6 +87,8 @@
       - org.videolan.VLC
       - com.calibre_ebook.calibre
       - com.dropbox.Client
+      # dev stuff
+      - org.gnome.Boxes
     state: present
 
 
