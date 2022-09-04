@@ -71,3 +71,16 @@
     - name: repositories | Add flathub flatpak repository
       shell: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
       when: flatpak.changed
+
+- name: packages | qbitorrent
+  block:
+    - name: repositories | add qbitorrent repo
+      apt_repository:
+        repo: ppa:qbittorrent-team/qbittorrent-stable
+        state: present
+
+    - name: repositories | add qbitorrent
+      apt:
+        name: qbitorrent
+        state: present
+      register: qbitorrent

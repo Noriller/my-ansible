@@ -32,7 +32,6 @@
       # stuff i want
       - gnome-system-monitor
       - google-chrome-stable
-      - qbittorrent
       - thunderbird
     state: latest
   register: packages
