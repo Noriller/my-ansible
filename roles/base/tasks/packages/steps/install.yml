@@ -29,6 +29,8 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
+      # design stuff
+      - hugin
       # stuff i want
       - gnome-system-monitor
       - google-chrome-stable
