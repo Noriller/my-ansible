@@ -1,0 +1,9 @@
+- name: update flatpaks
+  shell:
+    cmd: flatpak update --noninteractive
+  become: true
+
+- name: update snaps
+  shell:
+    cmd: snap refresh
+  become: true

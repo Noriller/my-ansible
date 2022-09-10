@@ -1,3 +1,4 @@
+# packages
 - import_tasks: roles/base/tasks/packages/steps/repositories.yml
 - import_tasks: roles/base/tasks/packages/steps/install.yml
 - import_tasks: roles/base/tasks/packages/steps/oh-my-zsh.yml
@@ -5,3 +6,6 @@
 - import_tasks: roles/base/tasks/packages/steps/gnome-extensions.yml
 - import_tasks: roles/base/tasks/packages/steps/ubuntu-drivers.yml
 - import_tasks: roles/base/tasks/packages/steps/docker-config.yml
+
+# updater
+- import_tasks: roles/base/tasks/packages/updates.yml
