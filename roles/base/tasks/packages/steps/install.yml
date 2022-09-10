@@ -88,6 +88,7 @@
       - org.videolan.VLC
       - com.calibre_ebook.calibre
       - com.dropbox.Client
+      - org.qbittorrent.qBittorrent
       # dev stuff
       - org.gnome.Boxes
     state: present
