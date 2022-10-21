@@ -54,6 +54,7 @@
       - okular
       # stuff I want
       - discord
+      - slack
     state: present
 
 - name: install | snap packages classic
