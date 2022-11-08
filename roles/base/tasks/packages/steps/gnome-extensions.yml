@@ -16,5 +16,6 @@
       - id: 1160    # dash-to-panel
       - id: 906     # sound-output-device-chooser
       # - id: 1319    # gsconnect
+      - id: 1723    # wintile-windows-10-window-tiling-for-gnome
     gnome_user: '{{ user_login }}'
     gtk_version: 3.0
