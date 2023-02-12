@@ -1,0 +1,99 @@
+# utilities
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - com.usebottles.bottles
+    state: present
+# design stuff
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.darktable.Darktable
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - com.rawtherapee.RawTherapee
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.kde.krita
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.gimp.GIMP
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.gimp.GIMP.Manual/x86_64/2.10
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.gimp.GIMP.Plugin.BIMP/x86_64/2-40
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.gimp.GIMP.Plugin.FocusBlur/x86_64/2-40
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.gimp.GIMP.Plugin.Fourier/x86_64/2-40
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.gimp.GIMP.Plugin.GMic/x86_64/2-40
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.gimp.GIMP.Plugin.Lensfun/x86_64/2-40
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.gimp.GIMP.Plugin.LiquidRescale/x86_64/2-40
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.gimp.GIMP.Plugin.Resynthesizer/x86_64/2-40
+    state: present
+# stuff I want
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - com.stremio.Stremio
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.videolan.VLC
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - com.calibre_ebook.calibre
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - com.dropbox.Client
+    state: present
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.qbittorrent.qBittorrent
+    state: present
+# dev stuff
+- name: install | flatpak packages
+  community.general.flatpak:
+    name:
+      - org.gnome.Boxes
+    state: present

@@ -1,0 +1,20 @@
+- name: install | install nvm
+  become_user: '{{ user_login }}'
+  shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  args:
+    creates: "/home/{{ user_login }}/.nvm/nvm.sh"
+  register: nvm_install
+
+- name: install | try to install lts node if possible
+  become_user: '{{ user_login }}'
+  block:
+    - name: install | nvm | bash lts node
+      shell: . "/home/{{ user_login }}/.nvm/nvm.sh" && nvm install --lts
+      register: nvm_install_bash
+  rescue:
+    - name: install | nvm | bash debug
+      debug:
+        msg: "{{ nvm_install_bash.stdout | to_nice_json }}"
+      when: nvm_install_bash.rc != 0
+  when: nvm_install is success
