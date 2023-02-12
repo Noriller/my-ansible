@@ -5,6 +5,7 @@ This is my ansible solution to setup and configure a new computer.
 ## Start
 
 I start with a Ubuntu 20.04 LTS "minimal" install.
+(Final commit for Ubuntu 20)
 
 Then:
 ```bash
