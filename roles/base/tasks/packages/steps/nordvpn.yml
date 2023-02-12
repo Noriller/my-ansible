@@ -1,0 +1,32 @@
+- name: packages | add nordvpn
+  block:
+    - name: packages | nordvpn | Create "nordvpn" group
+      group:
+        name: nordvpn
+        state: present
+
+    - name: packages | nordvpn | Add user to "nordvpn" group
+      user:
+        name: "{{ user_login }}"
+        groups: nordvpn
+        append: yes
+      register: nordvpn_group
+
+    - name: nordvpn | download nordvpn script
+      get_url:
+        url: https://downloads.nordcdn.com/apps/linux/install.sh
+        dest: /tmp/nordvpn_script.sh
+        mode: 0755
+      register: nordvpn_download
+
+    - name: nordvpn | install nordvpn script
+      become_user: '{{ user_login }}'
+      shell: sh -c /tmp/nordvpn_script.sh
+      when: nordvpn_download.changed && nordvpn_group.changed
+      register: nordvpn_install
+      ignore_errors: True
+
+    - name: nordvpn | remove nordvpn script
+      file:
+        path: /tmp/nordvpn_script.sh
+        state: absent
