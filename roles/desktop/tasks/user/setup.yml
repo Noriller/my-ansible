@@ -115,27 +115,21 @@
           - { key: "clock-format", value: "'24h'" }
           - { key: "gtk-theme", value: "'Yaru-dark'" }
           - { key: "gtk-enable-primary-paste", value: "false" }
-          - { key: "clock-show-seconds", value: "true" }
+          - { key: "clock-show-date", value: "true" }
+          - { key: "clock-show-seconds", value: "false" }
           - { key: "clock-show-weekday", value: "true" }
           - { key: "enable-animations", value: "false" }
           - { key: "enable-hot-corners", value: "false" }
-          - { key: "show-battery-percentage", value: "true" }
+          - { key: "show-battery-percentage", value: "false" }
           - { key: "font-name", value: "'Arial 11'" }
           - { key: "toolkit-accessibility", value: "false" }
-      - base_path: org/gnome/desktop/media-handling
-        key_value:
-          - { key: "autorun-never", value: "true" }
-          - { key: "autorun-x-content-ignore", value: "['x-content/audio-cdda', 'x-content/video-dvd', 'x-content/audio-player', 'x-content/image-dcf']" }
-          - { key: "autorun-x-content-open-folder", value: "@as []" }
-          - { key: "autorun-x-content-start-app", value: "['x-content/unix-software']" }
       - base_path: org/gnome/desktop/notifications/application/gnome-printers-panel
         key_value:
           - { key: "enable", value: "false" }
-      - base_path: org/gnome/desktop/peripherals/keyboard
-        key_value:
-          - { key: "numlock-state", value: "true" }
       - base_path: org/gnome/desktop/peripherals/touchpad
         key_value:
+          - { key: "click-method", value: "fingers"}
+          - { key: "edge-scrolling-enabled", value: "true"}
           - { key: "two-finger-scrolling-enabled", value: "true"}
       - base_path: org/gnome/desktop/privacy
         key_value:
@@ -143,15 +137,6 @@
           - { key: "remove-old-temp-files", value: "true" }
           - { key: "remove-old-trash-files", value: "true" }
           - { key: "report-technical-problems", value: "true" }
-      - base_path: org/gnome/desktop/screensaver
-        key_value:
-          - { key: "lock-delay", value: "uint32 0" }
-      - base_path: org/gnome/desktop/search-providers
-        key_value:
-          - { key: "sort-order", value: "['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Software.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Characters.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.seahorse.Application.desktop']" }
-      - base_path: org/gnome/desktop/session
-        key_value:
-          - { key: "idle-delay", value: "uint32 600" }
       - base_path: org/gnome/desktop/sound
         key_value:
           - { key: "allow-volume-above-100-percent", value: "false" }
@@ -162,69 +147,51 @@
           - { key: "night-light-schedule-from", value: "0.0" }
           - { key: "night-light-schedule-to", value: "23.983333333333334" }
           - { key: "night-light-temperature", value: "uint32 2700" }
-      - base_path: org/gnome/settings-daemon/plugins/power
-        key_value:
-          - { key: "sleep-inactive-ac-timeout", value: "3600" }
-          - { key: "sleep-inactive-ac-type", value: "'nothing'" }
-          - { key: "sleep-inactive-battery-timeout", value: "900" }
       - base_path: org/gnome/system/location
         key_value:
           - { key: "enabled", value: "false" }
-      - base_path: org/gtk/settings/file-chooser
-        key_value:
-          - { key: "clock-format", value: "'24h'" }
-          - { key: "date-format", value: "'regular'" }
-          - { key: "location-mode", value: "'path-bar'" }
-          - { key: "show-hidden", value: "false" }
-          - { key: "show-size-column", value: "true" }
-          - { key: "show-type-column", value: "true" }
-          - { key: "sidebar-width", value: "161" }
-          - { key: "sort-column", value: "'modified'" }
-          - { key: "sort-directories-first", value: "true" }
-          - { key: "sort-order", value: "'descending'" }
-          - { key: "type-format", value: "'category'" }
-      - base_path: org/gnome/desktop/app-folders
-        key_value:
-          - { key: "folder-children", value: "['Utilities', 'YaST', 'a480f079-0654-4928-b577-f029fae32c3d', '23c8f41c-9db1-49b9-a143-767b968112b6', '4ae87e58-d11e-4f00-9cd2-300723cce986', '0e08a4da-de52-402e-a5ed-efca6bb9571c', 'f1c1739c-e90a-4f02-8c07-9057cdac1aca', 'c23879e7-4c06-4b24-8633-988a07233d4c', '9c34504b-2b9d-4ed5-b82d-cdc82be33899']" }
-      - base_path: org/gnome/desktop/app-folders/folders/0e08a4da-de52-402e-a5ed-efca6bb9571c
-        key_value:
-          - { key: "apps", value: "['gnome-system-monitor.desktop', 'org.gnome.PowerStats.desktop', 'htop.desktop', 'gnome-control-center.desktop']" }
-          - { key: "name", value: "'System'" }
-      - base_path: org/gnome/desktop/app-folders/folders/23c8f41c-9db1-49b9-a143-767b968112b6
-        key_value:
-          - { key: "apps", value: "['org.kde.krita.desktop', 'obs-studio_obs-studio.desktop', 'darktable.desktop', 'vlc_vlc.desktop', 'com.calibre_ebook.calibre.desktop', 'gimp_gimp.desktop', 'com.rawtherapee.RawTherapee.desktop', 'org.darktable.Darktable.desktop', 'org.gimp.GIMP.desktop', 'org.videolan.VLC.desktop']" }
-          - { key: "name", value: "'Art'" }
-          - { key: "translate", value: "false" }
-      - base_path: org/gnome/desktop/app-folders/folders/4ae87e58-d11e-4f00-9cd2-300723cce986
-        key_value:
-          - { key: "apps", value: "['okular_okular.desktop', 'onlyoffice-desktopeditors_onlyoffice-desktopeditors.desktop', 'org.gnome.gedit.desktop', 'thunderbird.desktop']" }
-          - { key: "name", value: "'Office'" }
-      - base_path: org/gnome/desktop/app-folders/folders/9c34504b-2b9d-4ed5-b82d-cdc82be33899
-        key_value:
-          - { key: "apps", value: "['software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'gnome-session-properties.desktop', 'update-manager.desktop', 'software-properties-gtk.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Software.desktop', 'com.usebottles.bottles.desktop']" }
-          - { key: "name", value: "'Installers'" }
-          - { key: "translate", value: "false" }
-      - base_path: org/gnome/desktop/app-folders/folders/Utilities
-        key_value:
-          - { key: "apps", value: "['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop', 'p7zip-desktop_p7zip-desktop.desktop', 'gnome-language-selector.desktop', 'okular_org.kde.okular.desktop', 'com.calibre_ebook.calibre.ebook-edit.desktop', 'com.calibre_ebook.calibre.ebook-viewer.desktop', 'com.calibre_ebook.calibre.lrfviewer.desktop', 'nvidia-settings.desktop', 'firefox.desktop', 'google-chrome.main.desktop', 'jupyter-notebook.desktop']" }
-          - { key: "categories", value: "['X-GNOME-Utilities']" }
-          - { key: "excluded-apps", value: "['org.gnome.Terminal.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'software-properties-gtk.desktop', 'update-manager.desktop', 'org.gnome.tweaks.desktop', 'snap-store_ubuntu-software.desktop', 'gnome-session-properties.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Software.desktop']" }
-          - { key: "name", value: "'Stuff'" }
-          - { key: "translate", value: "false" }
-      - base_path: org/gnome/desktop/app-folders/folders/a480f079-0654-4928-b577-f029fae32c3d
-        key_value:
-          - { key: "apps", value: "['org.qbittorrent.qBittorrent.desktop', 'jdownloader2_JDownloader.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.second.desktop', 'com.dropbox.Client.desktop', 'nordvpn.desktop']" }
-          - { key: "name", value: "'Internet'" }
-      - base_path: org/gnome/desktop/app-folders/folders/c23879e7-4c06-4b24-8633-988a07233d4c
-        key_value:
-          - { key: "apps", value: "['org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'org.gnome.tweaks.desktop', 'grub-customizer.desktop', 'org.gnome.baobab.desktop']" }
-          - { key: "name", value: "'Utils'" }
-          - { key: "translate", value: "false" }
-      - base_path: org/gnome/desktop/app-folders/folders/f1c1739c-e90a-4f02-8c07-9057cdac1aca
-        key_value:
-          - { key: "apps", value: "['org.gnome.Terminal.desktop', 'code_code.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'org.gnome.Boxes.desktop', 'android-studio_android-studio.desktop']" }
-          - { key: "name", value: "'_DEV_'" }
-          - { key: "translate", value: "false" }
+      # - base_path: org/gnome/desktop/app-folders
+      #   key_value:
+      #     - { key: "folder-children", value: "['Utilities', 'YaST', 'a480f079-0654-4928-b577-f029fae32c3d', '23c8f41c-9db1-49b9-a143-767b968112b6', '4ae87e58-d11e-4f00-9cd2-300723cce986', '0e08a4da-de52-402e-a5ed-efca6bb9571c', 'f1c1739c-e90a-4f02-8c07-9057cdac1aca', 'c23879e7-4c06-4b24-8633-988a07233d4c', '9c34504b-2b9d-4ed5-b82d-cdc82be33899']" }
+      # - base_path: org/gnome/desktop/app-folders/folders/0e08a4da-de52-402e-a5ed-efca6bb9571c
+      #   key_value:
+      #     - { key: "apps", value: "['gnome-system-monitor.desktop', 'org.gnome.PowerStats.desktop', 'htop.desktop', 'gnome-control-center.desktop']" }
+      #     - { key: "name", value: "'System'" }
+      # - base_path: org/gnome/desktop/app-folders/folders/23c8f41c-9db1-49b9-a143-767b968112b6
+      #   key_value:
+      #     - { key: "apps", value: "['org.kde.krita.desktop', 'obs-studio_obs-studio.desktop', 'darktable.desktop', 'vlc_vlc.desktop', 'com.calibre_ebook.calibre.desktop', 'gimp_gimp.desktop', 'com.rawtherapee.RawTherapee.desktop', 'org.darktable.Darktable.desktop', 'org.gimp.GIMP.desktop', 'org.videolan.VLC.desktop']" }
+      #     - { key: "name", value: "'Art'" }
+      #     - { key: "translate", value: "false" }
+      # - base_path: org/gnome/desktop/app-folders/folders/4ae87e58-d11e-4f00-9cd2-300723cce986
+      #   key_value:
+      #     - { key: "apps", value: "['okular_okular.desktop', 'onlyoffice-desktopeditors_onlyoffice-desktopeditors.desktop', 'org.gnome.gedit.desktop', 'thunderbird.desktop']" }
+      #     - { key: "name", value: "'Office'" }
+      # - base_path: org/gnome/desktop/app-folders/folders/9c34504b-2b9d-4ed5-b82d-cdc82be33899
+      #   key_value:
+      #     - { key: "apps", value: "['software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'gnome-session-properties.desktop', 'update-manager.desktop', 'software-properties-gtk.desktop', 'snap-store_ubuntu-software.desktop', 'org.gnome.Software.desktop', 'com.usebottles.bottles.desktop']" }
+      #     - { key: "name", value: "'Installers'" }
+      #     - { key: "translate", value: "false" }
+      # - base_path: org/gnome/desktop/app-folders/folders/Utilities
+      #   key_value:
+      #     - { key: "apps", value: "['gnome-abrt.desktop', 'gnome-system-log.desktop', 'gucharmap.desktop', 'nm-connection-editor.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Usage.desktop', 'simple-scan.desktop', 'vinagre.desktop', 'yelp.desktop', 'p7zip-desktop_p7zip-desktop.desktop', 'gnome-language-selector.desktop', 'okular_org.kde.okular.desktop', 'com.calibre_ebook.calibre.ebook-edit.desktop', 'com.calibre_ebook.calibre.ebook-viewer.desktop', 'com.calibre_ebook.calibre.lrfviewer.desktop', 'nvidia-settings.desktop', 'firefox.desktop', 'google-chrome.main.desktop', 'jupyter-notebook.desktop']" }
+      #     - { key: "categories", value: "['X-GNOME-Utilities']" }
+      #     - { key: "excluded-apps", value: "['org.gnome.Terminal.desktop', 'gnome-system-monitor.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'software-properties-drivers.desktop', 'software-properties-livepatch.desktop', 'software-properties-gtk.desktop', 'update-manager.desktop', 'org.gnome.tweaks.desktop', 'snap-store_ubuntu-software.desktop', 'gnome-session-properties.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Software.desktop']" }
+      #     - { key: "name", value: "'Stuff'" }
+      #     - { key: "translate", value: "false" }
+      # - base_path: org/gnome/desktop/app-folders/folders/a480f079-0654-4928-b577-f029fae32c3d
+      #   key_value:
+      #     - { key: "apps", value: "['org.qbittorrent.qBittorrent.desktop', 'jdownloader2_JDownloader.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.second.desktop', 'com.dropbox.Client.desktop', 'nordvpn.desktop']" }
+      #     - { key: "name", value: "'Internet'" }
+      # - base_path: org/gnome/desktop/app-folders/folders/c23879e7-4c06-4b24-8633-988a07233d4c
+      #   key_value:
+      #     - { key: "apps", value: "['org.gnome.Calculator.desktop', 'org.gnome.Extensions.desktop', 'laptop-mode-tools.desktop', 'org.gnome.tweaks.desktop', 'grub-customizer.desktop', 'org.gnome.baobab.desktop']" }
+      #     - { key: "name", value: "'Utils'" }
+      #     - { key: "translate", value: "false" }
+      # - base_path: org/gnome/desktop/app-folders/folders/f1c1739c-e90a-4f02-8c07-9057cdac1aca
+      #   key_value:
+      #     - { key: "apps", value: "['org.gnome.Terminal.desktop', 'code_code.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'org.gnome.Boxes.desktop', 'android-studio_android-studio.desktop']" }
+      #     - { key: "name", value: "'_DEV_'" }
+      #     - { key: "translate", value: "false" }
       - base_path: org/gnome/desktop/calendar
         key_value:
           - { key: "show-weekdate", value: "true" }
@@ -238,6 +205,11 @@
           - { key: "center-new-windows", value: "true" }
           - { key: "dynamic-workspaces", value: "true" }
           - { key: "workspaces-only-on-primary", value: "false" }
+          - { key: "edge-tiling", value: "false" }
+      - base_path: org/gnome/mutter/keybindings
+        key_value:
+          - { key: "toggle-tiled-left", value: "['<Control><Shift><Super>Left']" }
+          - { key: "toggle-tiled-right", value: "['<Control><Shift><Super>Right']" }
       - base_path: org/gnome/settings-daemon/plugins/xsettings
         key_value:
           - { key: "hinting", value: "'full'" }
@@ -246,8 +218,8 @@
         key_value:
           - { key: "disable-user-extensions", value: "false" }
           - { key: "disabled-extensions", value: "['extension-list@tu.berry', 'desktop-icons@csoriano']"}
-          - { key: "enabled-extensions", value: "['clipboard-indicator@tudmotu.com', 'dash-to-panel@jderose9.github.com', 'freon@UshakovVasilii_Github.yahoo.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'sound-output-device-chooser@kgshank.net', 'system-monitor@paradoxxx.zero.gmail.com', 'extra-panels@darkxst.feathertop.org', 'extensions@abteil.org', 'ubuntu-appindicators@ubuntu.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-dock@ubuntu.com']" }
-          - { key: "favorite-apps", value: "['gnome-control-center.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.desktop', 'google-chrome.second.desktop', 'code_code.desktop']" }
+          - { key: "enabled-extensions", value: "['clipboard-indicator@tudmotu.com', 'dash-to-panel@jderose9.github.com', 'freon@UshakovVasilii_Github.yahoo.com', 'sound-output-device-chooser@kgshank.net', 'system-monitor@paradoxxx.zero.gmail.com', 'extra-panels@darkxst.feathertop.org', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'tiling-assistant@leleat-on-github', 'wintile@nowsci.com']" }
+          - { key: "favorite-apps", value: "['gnome-control-center.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'slack_slack.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.desktop', 'google-chrome.second.desktop', 'code_code.desktop']" }
           - { key: "had-bluetooth-devices-setup", value: "true" }
       - base_path: org/gnome/shell/extensions/clipboard-indicator
         key_value:
@@ -371,6 +343,8 @@
           - { key: "switch-to-workspace-up", value: "['<Super>Page_Up', '<Control><Super>Up']" }
           - { key: "switch-to-workspace-left", value: "@as []" }
           - { key: "switch-to-workspace-right", value: "@as []" }
+          - { key: "maximize", value: "['<Control><Shift><Super>Up']" }
+          - { key: "unmaximize", value: "['<Control><Shift><Super>Down', '<Alt>F5']" }
       - base_path: org/gnome/gnome-system-monitor
         key_value:
           - { key: "current-tab", value: "'resources'"}
