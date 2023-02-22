@@ -1,4 +1,5 @@
 - name: gnome extensions
+  become: true
   shell: sudo apt install $(apt search gnome-shell-extension | grep ^gnome | cut -d / -f1) -y
 
 # - name: gnome extensions
