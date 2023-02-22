@@ -45,5 +45,7 @@
     state: latest
   register: packages
   until: packages is success
+  rescue:
+    - set_fact: task_failed=true
   retries: 10
   delay: 10
