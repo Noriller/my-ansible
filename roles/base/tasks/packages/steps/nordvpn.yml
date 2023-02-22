@@ -17,6 +17,7 @@
         url: https://downloads.nordcdn.com/apps/linux/install.sh
         dest: /tmp/nordvpn_script.sh
         mode: 0755
+      when: nordvpn_download.changed
       register: nordvpn_download
 
     - name: nordvpn | install nordvpn script

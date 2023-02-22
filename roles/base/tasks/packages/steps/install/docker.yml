@@ -64,7 +64,6 @@
 - name: install | docker pip packages
   pip:
     name:
-      - speedtest-cli
       - docker
       - docker-compose
     state: present
