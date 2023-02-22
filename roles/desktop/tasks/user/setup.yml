@@ -214,129 +214,129 @@
         key_value:
           - { key: "hinting", value: "'full'" }
           - { key: "antialiasing", value: "'rgba'" }
-      - base_path: org/gnome/shell
-        key_value:
-          - { key: "disable-user-extensions", value: "false" }
-          # - { key: "disabled-extensions", value: "['extension-list@tu.berry', 'desktop-icons@csoriano']"}
-          # - { key: "enabled-extensions", value: "['clipboard-indicator@tudmotu.com', 'dash-to-panel@jderose9.github.com', 'freon@UshakovVasilii_Github.yahoo.com', 'sound-output-device-chooser@kgshank.net', 'system-monitor@paradoxxx.zero.gmail.com', 'extra-panels@darkxst.feathertop.org', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'tiling-assistant@leleat-on-github', 'wintile@nowsci.com']" }
-          # - { key: "favorite-apps", value: "['gnome-control-center.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'slack_slack.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.desktop', 'google-chrome.second.desktop', 'code_code.desktop']" }
-          - { key: "had-bluetooth-devices-setup", value: "true" }
-      - base_path: org/gnome/shell/extensions/clipboard-indicator
-        key_value:
-          - { key: "cache-only-favorites", value: "true" }
-          - { key: "move-item-first", value: "true" }
-          - { key: "strip-text", value: "false" }
-          - { key: "display-mode", value: 0 }
-          - { key: "history-size", value: 50 }
-      - base_path: org/gnome/shell/extensions/dash-to-dock
-        key_value:
-          - { key: "animate-show-apps", value: "false" }
-          - { key: "apply-custom-theme", value: "false" }
-          - { key: "click-action", value: "'skip'" }
-          - { key: "custom-background-color", value: "false" }
-          - { key: "custom-theme-shrink", value: "true" }
-          - { key: "dash-max-icon-size", value: "32" }
-          - { key: "dock-fixed", value: "true" }
-          - { key: "dock-position", value: "'BOTTOM'" }
-          - { key: "extend-height", value: "true" }
-          - { key: "force-straight-corner", value: "false" }
-          - { key: "height-fraction", value: "1.0" }
-          - { key: "hot-keys", value: "false" }
-          - { key: "icon-size-fixed", value: "false" }
-          - { key: "intellihide-mode", value: "false" }
-          - { key: "isolate-monitors", value: "false" }
-          - { key: "isolate-workspaces", value: "true" }
-          - { key: "max-alpha", value: "0.80000000000000004" }
-          - { key: "middle-click-action", value: "'launch'" }
-          - { key: "multi-monitor", value: "true" }
-          - { key: "preferred-monitor", value: "0" }
-          - { key: "running-indicator-style", value: "'SEGMENTED'" }
-          - { key: "scroll-action", value: "'cycle-windows'" }
-          - { key: "shift-click-action", value: "'minimize'" }
-          - { key: "shift-middle-click-action", value: "'launch'" }
-          - { key: "show-apps-at-top", value: "true" }
-          - { key: "show-mounts", value: "false" }
-          - { key: "show-trash", value: "false" }
-          - { key: "transparency-mode", value: "'DYNAMIC'" }
-      - base_path: org/gnome/shell/extensions/dash-to-panel
-        key_value:
-          - { key: "animate-app-switch", value: "false" }
-          - { key: "animate-appicon-hover", value: "false" }
-          - { key: "animate-appicon-hover-animation-extent", value: "{'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}" }
-          - { key: "animate-show-apps", value: "false" }
-          - { key: "animate-window-launch", value: "false" }
-          - { key: "appicon-margin", value: "8" }
-          - { key: "appicon-padding", value: "4" }
-          - { key: "dot-position", value: "'BOTTOM'" }
-          - { key: "dot-style-focused", value: "'SEGMENTED'" }
-          - { key: "dot-style-unfocused", value: "'DASHES'" }
-          - { key: "group-apps", value: "true" }
-          - { key: "group-apps-label-font-color", value: "'#dddddd'" }
-          - { key: "group-apps-label-font-color-minimized", value: "'#dddddd'" }
-          - { key: "group-apps-underline-unfocused", value: "true" }
-          - { key: "group-apps-use-fixed-width", value: "false" }
-          - { key: "group-apps-use-launchers", value: "false" }
-          - { key: "hotkeys-overlay-combo", value: "'TEMPORARILY'" }
-          - { key: "intellihide", value: "false" }
-          - { key: "isolate-monitors", value: "false" }
-          - { key: "isolate-workspaces", value: "true" }
-          - { key: "multi-monitors", value: "true" }
-          - { key: "overview-click-to-exit", value: "true" }
-          - { key: "panel-anchors", value: "'{\"0\":\"MIDDLE\",\"1\":\"MIDDLE\"}'" }
-          - { key: "panel-element-positions", value: "'{\"0\":[{\"element\":\"showAppsButton\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedBR\"},{\"element\":\"leftBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"taskbar\",\"visible\":true,\"position\":\"centered\"},{\"element\":\"centerBox\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"dateMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"desktopButton\",\"visible\":true,\"position\":\"stackedBR\"}],\"1\":[{\"element\":\"showAppsButton\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedBR\"},{\"element\":\"leftBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"taskbar\",\"visible\":true,\"position\":\"centered\"},{\"element\":\"centerBox\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"dateMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"desktopButton\",\"visible\":true,\"position\":\"stackedBR\"}]}'" }
-          - { key: "panel-lengths", value: "'{\"0\":100,\"1\":100}'" }
-          - { key: "panel-sizes", value: "'{\"0\":32,\"1\":32}'" }
-          - { key: "panel-element-positions-monitors-sync", value: "true" }
-          - { key: "secondarymenu-contains-showdetails", value: "true" }
-          - { key: "show-appmenu", value: "false" }
-          - { key: "show-apps-icon-file", value: "''" }
-          - { key: "show-favorites", value: "true" }
-          - { key: "show-favorites-all-monitors", value: "true" }
-          - { key: "show-running-apps", value: "true" }
-          - { key: "stockgs-force-hotcorner", value: "false" }
-          - { key: "stockgs-keep-dash", value: "false" }
-          - { key: "stockgs-keep-top-panel", value: "false" }
-          - { key: "stockgs-panelbtn-click-only", value: "false" }
-          - { key: "trans-gradient-bottom-color", value: "'#5c3566'" }
-          - { key: "trans-gradient-bottom-opacity", value: "0.29999999999999999" }
-          - { key: "trans-use-custom-bg", value: "false" }
-          - { key: "trans-use-custom-gradient", value: "false" }
-          - { key: "trans-use-custom-opacity", value: "true" }
-          - { key: "trans-use-dynamic-opacity", value: "false" }
-          - { key: "tray-size", value: "0" }
-      - base_path: org/gnome/shell/extensions/desktop-icons
-        key_value:
-          - { key: "icon-size", value: "'small'" }
-          - { key: "show-home", value: "true" }
-          - { key: "show-trash", value: "true" }
-      - base_path: org/gnome/shell/extensions/extension-list
-        key_value:
-          - { key: "delete-button", value: "false" }
-          - { key: "hide-disabled", value: "false" }
-          - { key: "prefs-button", value: "true" }
-          - { key: "url-button", value: "false" }
-      - base_path: org/gnome/shell/extensions/extensions
-        key_value:
-          - { key: "position", value: "'panel'" }
-          - { key: "show-add", value: "false" }
-      - base_path: org/gnome/shell/extensions/extra-panels
-        key_value:
-          - { key: "display-clock", value: "true" }
-          - { key: "display-sysicons", value: "false" }
-      - base_path: org/gnome/shell/extensions/sound-output-device-chooser
-        key_value:
-          - { key: "hide-on-single-device", value: "true" }
-          - { key: "icon-theme", value: "'colored'" }
-          - { key: "integrate-with-slider", value: "true" }
-          - { key: "omit-device-origins", value: "true" }
-      - base_path: org/gnome/shell/extensions/system-monitor
-        key_value:
-          - { key: "center-display", value: "false" }
-          - { key: "compact-display", value: "false" }
-          - { key: "move-clock", value: "false" }
-      - base_path: org/gtk/settings/color-chooser
-        key_value:
-          - { key: "selected-color", value: "(true, 0.36078431372549019, 0.20784313725490197, 0.40000000000000002, 1.0)" }
+      # - base_path: org/gnome/shell
+      #   key_value:
+      #     - { key: "disable-user-extensions", value: "false" }
+      #     # - { key: "disabled-extensions", value: "['extension-list@tu.berry', 'desktop-icons@csoriano']"}
+      #     # - { key: "enabled-extensions", value: "['clipboard-indicator@tudmotu.com', 'dash-to-panel@jderose9.github.com', 'freon@UshakovVasilii_Github.yahoo.com', 'sound-output-device-chooser@kgshank.net', 'system-monitor@paradoxxx.zero.gmail.com', 'extra-panels@darkxst.feathertop.org', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'tiling-assistant@leleat-on-github', 'wintile@nowsci.com']" }
+      #     # - { key: "favorite-apps", value: "['gnome-control-center.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'slack_slack.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.desktop', 'google-chrome.second.desktop', 'code_code.desktop']" }
+      #     - { key: "had-bluetooth-devices-setup", value: "true" }
+      # - base_path: org/gnome/shell/extensions/clipboard-indicator
+      #   key_value:
+      #     - { key: "cache-only-favorites", value: "true" }
+      #     - { key: "move-item-first", value: "true" }
+      #     - { key: "strip-text", value: "false" }
+      #     - { key: "display-mode", value: 0 }
+      #     - { key: "history-size", value: 50 }
+      # - base_path: org/gnome/shell/extensions/dash-to-dock
+      #   key_value:
+      #     - { key: "animate-show-apps", value: "false" }
+      #     - { key: "apply-custom-theme", value: "false" }
+      #     - { key: "click-action", value: "'skip'" }
+      #     - { key: "custom-background-color", value: "false" }
+      #     - { key: "custom-theme-shrink", value: "true" }
+      #     - { key: "dash-max-icon-size", value: "32" }
+      #     - { key: "dock-fixed", value: "true" }
+      #     - { key: "dock-position", value: "'BOTTOM'" }
+      #     - { key: "extend-height", value: "true" }
+      #     - { key: "force-straight-corner", value: "false" }
+      #     - { key: "height-fraction", value: "1.0" }
+      #     - { key: "hot-keys", value: "false" }
+      #     - { key: "icon-size-fixed", value: "false" }
+      #     - { key: "intellihide-mode", value: "false" }
+      #     - { key: "isolate-monitors", value: "false" }
+      #     - { key: "isolate-workspaces", value: "true" }
+      #     - { key: "max-alpha", value: "0.80000000000000004" }
+      #     - { key: "middle-click-action", value: "'launch'" }
+      #     - { key: "multi-monitor", value: "true" }
+      #     - { key: "preferred-monitor", value: "0" }
+      #     - { key: "running-indicator-style", value: "'SEGMENTED'" }
+      #     - { key: "scroll-action", value: "'cycle-windows'" }
+      #     - { key: "shift-click-action", value: "'minimize'" }
+      #     - { key: "shift-middle-click-action", value: "'launch'" }
+      #     - { key: "show-apps-at-top", value: "true" }
+      #     - { key: "show-mounts", value: "false" }
+      #     - { key: "show-trash", value: "false" }
+      #     - { key: "transparency-mode", value: "'DYNAMIC'" }
+      # - base_path: org/gnome/shell/extensions/dash-to-panel
+      #   key_value:
+      #     - { key: "animate-app-switch", value: "false" }
+      #     - { key: "animate-appicon-hover", value: "false" }
+      #     - { key: "animate-appicon-hover-animation-extent", value: "{'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}" }
+      #     - { key: "animate-show-apps", value: "false" }
+      #     - { key: "animate-window-launch", value: "false" }
+      #     - { key: "appicon-margin", value: "8" }
+      #     - { key: "appicon-padding", value: "4" }
+      #     - { key: "dot-position", value: "'BOTTOM'" }
+      #     - { key: "dot-style-focused", value: "'SEGMENTED'" }
+      #     - { key: "dot-style-unfocused", value: "'DASHES'" }
+      #     - { key: "group-apps", value: "true" }
+      #     - { key: "group-apps-label-font-color", value: "'#dddddd'" }
+      #     - { key: "group-apps-label-font-color-minimized", value: "'#dddddd'" }
+      #     - { key: "group-apps-underline-unfocused", value: "true" }
+      #     - { key: "group-apps-use-fixed-width", value: "false" }
+      #     - { key: "group-apps-use-launchers", value: "false" }
+      #     - { key: "hotkeys-overlay-combo", value: "'TEMPORARILY'" }
+      #     - { key: "intellihide", value: "false" }
+      #     - { key: "isolate-monitors", value: "false" }
+      #     - { key: "isolate-workspaces", value: "true" }
+      #     - { key: "multi-monitors", value: "true" }
+      #     - { key: "overview-click-to-exit", value: "true" }
+      #     - { key: "panel-anchors", value: "'{\"0\":\"MIDDLE\",\"1\":\"MIDDLE\"}'" }
+      #     - { key: "panel-element-positions", value: "'{\"0\":[{\"element\":\"showAppsButton\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedBR\"},{\"element\":\"leftBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"taskbar\",\"visible\":true,\"position\":\"centered\"},{\"element\":\"centerBox\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"dateMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"desktopButton\",\"visible\":true,\"position\":\"stackedBR\"}],\"1\":[{\"element\":\"showAppsButton\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"activitiesButton\",\"visible\":false,\"position\":\"stackedBR\"},{\"element\":\"leftBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"taskbar\",\"visible\":true,\"position\":\"centered\"},{\"element\":\"centerBox\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"rightBox\",\"visible\":true,\"position\":\"stackedTL\"},{\"element\":\"systemMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"dateMenu\",\"visible\":true,\"position\":\"stackedBR\"},{\"element\":\"desktopButton\",\"visible\":true,\"position\":\"stackedBR\"}]}'" }
+      #     - { key: "panel-lengths", value: "'{\"0\":100,\"1\":100}'" }
+      #     - { key: "panel-sizes", value: "'{\"0\":32,\"1\":32}'" }
+      #     - { key: "panel-element-positions-monitors-sync", value: "true" }
+      #     - { key: "secondarymenu-contains-showdetails", value: "true" }
+      #     - { key: "show-appmenu", value: "false" }
+      #     - { key: "show-apps-icon-file", value: "''" }
+      #     - { key: "show-favorites", value: "true" }
+      #     - { key: "show-favorites-all-monitors", value: "true" }
+      #     - { key: "show-running-apps", value: "true" }
+      #     - { key: "stockgs-force-hotcorner", value: "false" }
+      #     - { key: "stockgs-keep-dash", value: "false" }
+      #     - { key: "stockgs-keep-top-panel", value: "false" }
+      #     - { key: "stockgs-panelbtn-click-only", value: "false" }
+      #     - { key: "trans-gradient-bottom-color", value: "'#5c3566'" }
+      #     - { key: "trans-gradient-bottom-opacity", value: "0.29999999999999999" }
+      #     - { key: "trans-use-custom-bg", value: "false" }
+      #     - { key: "trans-use-custom-gradient", value: "false" }
+      #     - { key: "trans-use-custom-opacity", value: "true" }
+      #     - { key: "trans-use-dynamic-opacity", value: "false" }
+      #     - { key: "tray-size", value: "0" }
+      # - base_path: org/gnome/shell/extensions/desktop-icons
+      #   key_value:
+      #     - { key: "icon-size", value: "'small'" }
+      #     - { key: "show-home", value: "true" }
+      #     - { key: "show-trash", value: "true" }
+      # - base_path: org/gnome/shell/extensions/extension-list
+      #   key_value:
+      #     - { key: "delete-button", value: "false" }
+      #     - { key: "hide-disabled", value: "false" }
+      #     - { key: "prefs-button", value: "true" }
+      #     - { key: "url-button", value: "false" }
+      # - base_path: org/gnome/shell/extensions/extensions
+      #   key_value:
+      #     - { key: "position", value: "'panel'" }
+      #     - { key: "show-add", value: "false" }
+      # - base_path: org/gnome/shell/extensions/extra-panels
+      #   key_value:
+      #     - { key: "display-clock", value: "true" }
+      #     - { key: "display-sysicons", value: "false" }
+      # - base_path: org/gnome/shell/extensions/sound-output-device-chooser
+      #   key_value:
+      #     - { key: "hide-on-single-device", value: "true" }
+      #     - { key: "icon-theme", value: "'colored'" }
+      #     - { key: "integrate-with-slider", value: "true" }
+      #     - { key: "omit-device-origins", value: "true" }
+      # - base_path: org/gnome/shell/extensions/system-monitor
+      #   key_value:
+      #     - { key: "center-display", value: "false" }
+      #     - { key: "compact-display", value: "false" }
+      #     - { key: "move-clock", value: "false" }
+      # - base_path: org/gtk/settings/color-chooser
+      #   key_value:
+      #     - { key: "selected-color", value: "(true, 0.36078431372549019, 0.20784313725490197, 0.40000000000000002, 1.0)" }
       - base_path: org/gnome/desktop/wm/keybindings
         key_value:
           - { key: "switch-to-workspace-down", value: "['<Super>Page_Down', '<Control><Super>Down']" }
@@ -345,29 +345,29 @@
           - { key: "switch-to-workspace-right", value: "@as []" }
           - { key: "maximize", value: "['<Control><Shift><Super>Up']" }
           - { key: "unmaximize", value: "['<Control><Shift><Super>Down', '<Alt>F5']" }
-      - base_path: org/gnome/gnome-system-monitor
-        key_value:
-          - { key: "current-tab", value: "'resources'"}
-          - { key: "show-dependencies", value: "false"}
-          - { key: "show-whose-processes", value: "'user'"}
-      - base_path: org/gnome/shell/extensions/freon
-        key_value:
-          - { key: "drive-utility", value: "'none'"}
-          - { key: "gpu-utility", value: "'bumblebee-nvidia-smi'"}
-          - { key: "group-temperature", value: "false"}
-          - { key: "group-voltage", value: "true"}
-          - { key: "hot-sensors", value: "['__average__', '__max__']"}
-          - { key: "panel-box-index", value: "0"}
-          - { key: "position-in-panel", value: "'right'"}
-          - { key: "show-decimal-value", value: "false"}
-          - { key: "show-fan-rpm", value: "true"}
-          - { key: "show-icon-on-panel", value: "true"}
-          - { key: "show-voltage", value: "true"}
-      - base_path: org/gnome/shell/extensions/hidetopbar
-        key_value:
-          - { key: "enable-active-window", value: "false"}
-          - { key: "enable-intellihide", value: "false"}
-          - { key: "hot-corner", value: "false"}
+      # - base_path: org/gnome/gnome-system-monitor
+      #   key_value:
+      #     - { key: "current-tab", value: "'resources'"}
+      #     - { key: "show-dependencies", value: "false"}
+      #     - { key: "show-whose-processes", value: "'user'"}
+      # - base_path: org/gnome/shell/extensions/freon
+      #   key_value:
+      #     - { key: "drive-utility", value: "'none'"}
+      #     - { key: "gpu-utility", value: "'bumblebee-nvidia-smi'"}
+      #     - { key: "group-temperature", value: "false"}
+      #     - { key: "group-voltage", value: "true"}
+      #     - { key: "hot-sensors", value: "['__average__', '__max__']"}
+      #     - { key: "panel-box-index", value: "0"}
+      #     - { key: "position-in-panel", value: "'right'"}
+      #     - { key: "show-decimal-value", value: "false"}
+      #     - { key: "show-fan-rpm", value: "true"}
+      #     - { key: "show-icon-on-panel", value: "true"}
+      #     - { key: "show-voltage", value: "true"}
+      # - base_path: org/gnome/shell/extensions/hidetopbar
+      #   key_value:
+      #     - { key: "enable-active-window", value: "false"}
+      #     - { key: "enable-intellihide", value: "false"}
+      #     - { key: "hot-corner", value: "false"}
       - base_path: org/gnome/gedit/preferences/editor
         key_value:
           - { key: "scheme", value: "'cobalt'" }
