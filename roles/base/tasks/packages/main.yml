@@ -1,4 +1,4 @@
-- vars:
+vars:
   deb_architecture: {
     "armv6l": "armhf",
     "armv7l": "armhf",
