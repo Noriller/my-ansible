@@ -5,3 +5,6 @@
 [submodule "roles/ansible-dropbox"]
 	path = roles/ansible-dropbox
 	url = https://github.com/Oefenweb/ansible-dropbox.git
+[submodule "roles/ansible-nordvpn"]
+	path = roles/ansible-nordvpn
+	url = https://github.com/ifel/nordvpn.git
