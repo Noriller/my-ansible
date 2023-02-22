@@ -30,5 +30,3 @@
       login: false
       # username: my@email.com
       # password: "my passwd, preferable encrypted, see https://bit.ly/3rOIlz3"
-    whitelisted_ports: [22, 80]
-    whitelisted_subnets: ["192.168.0.0/16"]
