@@ -9,7 +9,7 @@
       apt_repository:
         repo:
           deb [arch={{ [ansible_architecture] | map('extract', deb_architecture) | first }}]
-          https://packages.microsoft.com/repos/edge
+          https://packages.microsoft.com/repos/edge/
           stable main
         state: present
         filename: microsoft-edge
