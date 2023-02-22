@@ -9,3 +9,6 @@
 
 # updater
 - import_tasks: roles/base/tasks/packages/updates.yml
+
+# dropbox
+- roles: dropbox
