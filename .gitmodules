@@ -1,3 +1,7 @@
 [submodule "roles/ansible-role-customize-gnome"]
 	path = roles/ansible-role-customize-gnome
 	url = https://github.com/PeterMosmans/ansible-role-customize-gnome.git
+
+[submodule "roles/ansible-dropbox"]
+	path = roles/ansible-dropbox
+	url = https://github.com/Oefenweb/ansible-dropbox.git
