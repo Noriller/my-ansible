@@ -1,32 +1,33 @@
 # dev stuff
 - name: install | snap packages classic
   block:
-    community.general.snap:
-      name:
-        - code
-        - android-studio
-      classic: true
-      state: present
+    - name: install | snap packages classic
+      community.general.snap:
+        name:
+          - code
+          - android-studio
+        classic: true
+        state: present
   rescue:
     - set_fact: task_failed=true
 
-# utilities
 - name: install | snap packages
   block:
-    community.general.snap:
-      name:
-      - notepadqq
-      - obs-studio
-      - jdownloader2
-      - canonical-livepatch
-      - scrcpy
-      # stuff I want
-      - discord
-      # - slack
-      # - notepad-plus-plus
-      # - onlyoffice-desktopeditors
-      # - p7zip-desktop
-      # - okular
-      state: present
+    - name: install | snap packages
+      community.general.snap:
+        name:
+        - notepadqq
+        - obs-studio
+        - jdownloader2
+        - canonical-livepatch
+        - scrcpy
+        # stuff I want
+        - discord
+        # - slack
+        # - notepad-plus-plus
+        # - onlyoffice-desktopeditors
+        # - p7zip-desktop
+        # - okular
+        state: present
   rescue:
     - set_fact: task_failed=true

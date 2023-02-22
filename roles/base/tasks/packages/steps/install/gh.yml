@@ -17,13 +17,14 @@
 
 - name: install | gh package
   block:
-    package:
-      name:
-        - gh
-      state: latest
-    register: packages
-    until: packages is success
-    retries: 10
-    delay: 10
+    - name: install | gh package
+      package:
+        name:
+          - gh
+        state: latest
+      register: packages
+      until: packages is success
+      retries: 10
+      delay: 10
   rescue:
     - set_fact: task_failed=true
