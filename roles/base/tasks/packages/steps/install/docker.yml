@@ -10,18 +10,19 @@
     append: yes
 
 - name: install | docker base apt packages
-  package:
-    name:
-      # basic stuff and dependencies
-      - ca-certificates
-      - curl
-      - gnupg
-      - lsb-release
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
+  block:
+    package:
+      name:
+        # basic stuff and dependencies
+        - ca-certificates
+        - curl
+        - gnupg
+        - lsb-release
+      state: latest
+    register: packages
+    until: packages is success
+    retries: 10
+    delay: 10
   rescue:
     - set_fact: task_failed=true
 
@@ -42,18 +43,19 @@
         filename: docker
 
 - name: install | docker packages
-  package:
-    name:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
-      - docker-buildx-plugin
-      - docker-compose-plugin
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
+  block:
+    package:
+      name:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+        - docker-buildx-plugin
+        - docker-compose-plugin
+      state: latest
+    register: packages
+    until: packages is success
+    retries: 10
+    delay: 10
   rescue:
     - set_fact: task_failed=true
 

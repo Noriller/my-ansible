@@ -24,35 +24,36 @@
       when: flatpak.changed
 
 - name: install | flatpak packages
-  community.general.flatpak:
-    name:
-      # design stuff
-      - org.darktable.Darktable
-      # stuff I want
-      - com.stremio.Stremio
-      - org.videolan.VLC
-      - org.qbittorrent.qBittorrent
-      # dev stuff
-      - org.gnome.Boxes
-      # utilities
-      # - com.usebottles.bottles
-      # design stuff
-      # - com.rawtherapee.RawTherapee
-      # - org.kde.krita
-      # - org.gimp.GIMP
-      # - org.gimp.GIMP.Manual/x86_64/2.10
-      # - org.gimp.GIMP.Plugin.BIMP/x86_64/2-40
-      # - org.gimp.GIMP.Plugin.FocusBlur/x86_64/2-40
-      # - org.gimp.GIMP.Plugin.Fourier/x86_64/2-40
-      # - org.gimp.GIMP.Plugin.GMic/x86_64/2-40
-      # - org.gimp.GIMP.Plugin.Lensfun/x86_64/2-40
-      # - org.gimp.GIMP.Plugin.LiquidRescale/x86_64/2-40
-      # - org.gimp.GIMP.Plugin.Resynthesizer/x86_64/2-40
-      # stuff I want
-      # - com.calibre_ebook.calibre
-      # - com.dropbox.Client
-      # dev stuff
-      # - org.gnome.Boxes
-    state: present
+  block:
+    community.general.flatpak:
+      name:
+        # design stuff
+        - org.darktable.Darktable
+        # stuff I want
+        - com.stremio.Stremio
+        - org.videolan.VLC
+        - org.qbittorrent.qBittorrent
+        # dev stuff
+        - org.gnome.Boxes
+        # utilities
+        # - com.usebottles.bottles
+        # design stuff
+        # - com.rawtherapee.RawTherapee
+        # - org.kde.krita
+        # - org.gimp.GIMP
+        # - org.gimp.GIMP.Manual/x86_64/2.10
+        # - org.gimp.GIMP.Plugin.BIMP/x86_64/2-40
+        # - org.gimp.GIMP.Plugin.FocusBlur/x86_64/2-40
+        # - org.gimp.GIMP.Plugin.Fourier/x86_64/2-40
+        # - org.gimp.GIMP.Plugin.GMic/x86_64/2-40
+        # - org.gimp.GIMP.Plugin.Lensfun/x86_64/2-40
+        # - org.gimp.GIMP.Plugin.LiquidRescale/x86_64/2-40
+        # - org.gimp.GIMP.Plugin.Resynthesizer/x86_64/2-40
+        # stuff I want
+        # - com.calibre_ebook.calibre
+        # - com.dropbox.Client
+        # dev stuff
+        # - org.gnome.Boxes
+      state: present
   rescue:
     - set_fact: task_failed=true

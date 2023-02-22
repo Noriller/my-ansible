@@ -1,51 +1,52 @@
 - name: install | apt packages
-  package:
-    name:
-      # basic stuff and dependencies
-      - git
-      - curl
-      - htop
-      - tree
-      - tmux
-      - ca-certificates
-      - gnupg
-      - lsb-release
-      - dconf-cli
-      - python3-psutil
-      - python3-pip
-      - baobab
-      - thunderbird
-      - steam
-      - stacer
-      - build-essential
-      - procps
-      - file
-      - grub-customizer
-      - gnome-tweaks
-      # when in VM
-      - spice-vdagent
-      - spice-webdavd
-      # - gnome-software-plugin-flatpak
-      # - laptop-mode-tools
-      # - lm-sensors
-      # - gnome-shell-extension-autohidetopbar
-      # - gnome-shell-extension-prefs
-      # - ttf-mscorefonts-installer
-      # - default-jre
-      # - default-jdk
-      # dev stuff
-      # - docker-ce
-      # - docker-ce-cli
-      # - containerd.io
-      # design stuff
-      # - hugin
-      # stuff i want
-      # - gnome-system-monitor
-      # - google-chrome-stable
-    state: latest
-  register: packages
-  until: packages is success
+  block:
+    package:
+      name:
+        # basic stuff and dependencies
+        - git
+        - curl
+        - htop
+        - tree
+        - tmux
+        - ca-certificates
+        - gnupg
+        - lsb-release
+        - dconf-cli
+        - python3-psutil
+        - python3-pip
+        - baobab
+        - thunderbird
+        - steam
+        - stacer
+        - build-essential
+        - procps
+        - file
+        - grub-customizer
+        - gnome-tweaks
+        # when in VM
+        - spice-vdagent
+        - spice-webdavd
+        # - gnome-software-plugin-flatpak
+        # - laptop-mode-tools
+        # - lm-sensors
+        # - gnome-shell-extension-autohidetopbar
+        # - gnome-shell-extension-prefs
+        # - ttf-mscorefonts-installer
+        # - default-jre
+        # - default-jdk
+        # dev stuff
+        # - docker-ce
+        # - docker-ce-cli
+        # - containerd.io
+        # design stuff
+        # - hugin
+        # stuff i want
+        # - gnome-system-monitor
+        # - google-chrome-stable
+      state: latest
+    register: packages
+    until: packages is success
+    retries: 10
+    delay: 10
   rescue:
     - set_fact: task_failed=true
-  retries: 10
-  delay: 10

@@ -16,13 +16,14 @@
         filename: github-cli.list
 
 - name: install | gh package
-  package:
-    name:
-      - gh
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
+  block:
+    package:
+      name:
+        - gh
+      state: latest
+    register: packages
+    until: packages is success
+    retries: 10
+    delay: 10
   rescue:
     - set_fact: task_failed=true

@@ -15,13 +15,14 @@
         filename: google-chrome
 
 - name: install | apt chrome
-  package:
-    name:
-      - google-chrome-stable
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
+  block:
+    package:
+      name:
+        - google-chrome-stable
+      state: latest
+    register: packages
+    until: packages is success
+    retries: 10
+    delay: 10
   rescue:
     - set_fact: task_failed=true

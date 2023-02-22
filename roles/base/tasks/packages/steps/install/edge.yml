@@ -15,13 +15,14 @@
         filename: edge
 
 - name: install | apt edge
-  package:
-    name:
-      - microsoft-edge-stable
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
+  block:
+    package:
+      name:
+        - microsoft-edge-stable
+      state: latest
+    register: packages
+    until: packages is success
+    retries: 10
+    delay: 10
   rescue:
     - set_fact: task_failed=true
