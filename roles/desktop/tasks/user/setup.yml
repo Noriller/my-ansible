@@ -217,9 +217,9 @@
       - base_path: org/gnome/shell
         key_value:
           - { key: "disable-user-extensions", value: "false" }
-          - { key: "disabled-extensions", value: "['extension-list@tu.berry', 'desktop-icons@csoriano']"}
-          - { key: "enabled-extensions", value: "['clipboard-indicator@tudmotu.com', 'dash-to-panel@jderose9.github.com', 'freon@UshakovVasilii_Github.yahoo.com', 'sound-output-device-chooser@kgshank.net', 'system-monitor@paradoxxx.zero.gmail.com', 'extra-panels@darkxst.feathertop.org', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'tiling-assistant@leleat-on-github', 'wintile@nowsci.com']" }
-          - { key: "favorite-apps", value: "['gnome-control-center.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'slack_slack.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.desktop', 'google-chrome.second.desktop', 'code_code.desktop']" }
+          # - { key: "disabled-extensions", value: "['extension-list@tu.berry', 'desktop-icons@csoriano']"}
+          # - { key: "enabled-extensions", value: "['clipboard-indicator@tudmotu.com', 'dash-to-panel@jderose9.github.com', 'freon@UshakovVasilii_Github.yahoo.com', 'sound-output-device-chooser@kgshank.net', 'system-monitor@paradoxxx.zero.gmail.com', 'extra-panels@darkxst.feathertop.org', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'tiling-assistant@leleat-on-github', 'wintile@nowsci.com']" }
+          # - { key: "favorite-apps", value: "['gnome-control-center.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop', 'notepad-plus-plus_notepad-plus-plus.desktop', 'discord_discord.desktop', 'slack_slack.desktop', 'com.stremio.Stremio.desktop', 'google-chrome.desktop', 'google-chrome.second.desktop', 'code_code.desktop']" }
           - { key: "had-bluetooth-devices-setup", value: "true" }
       - base_path: org/gnome/shell/extensions/clipboard-indicator
         key_value:
