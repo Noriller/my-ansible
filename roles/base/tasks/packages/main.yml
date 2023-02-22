@@ -20,12 +20,12 @@
   become: true
   import_role:
     name: ansible-nordvpn
-    vars:
-      auto_connect: true
-      auto_connect_host: "br"
-      firewall: true
-      kill_switch: true
-      technology: "NORDLYNX"
-      login: false
-      # username: my@email.com
-      # password: "my passwd, preferable encrypted, see https://bit.ly/3rOIlz3"
+  vars:
+    auto_connect: true
+    auto_connect_host: "br"
+    firewall: true
+    kill_switch: true
+    technology: "NORDLYNX"
+    login: false
+    # username: my@email.com
+    # password: "my passwd, preferable encrypted, see https://bit.ly/3rOIlz3"
