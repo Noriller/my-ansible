@@ -47,5 +47,3 @@
   until: packages is success
   retries: 10
   delay: 10
-  rescue:
-    - set_fact: task_failed=true
