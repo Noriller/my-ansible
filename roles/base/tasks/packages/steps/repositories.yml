@@ -1,23 +1,22 @@
 - name: packages | multiverse
   block:
-    - name:
-        repositories | add multiverse repository
-      apt_repository:
-        repo: multiverse
-        state: present
+    - name: repositories | add multiverse repository
+      shell: sudo add-apt-repository multiverse
+      # apt_repository:
+      #   repo: multiverse
+      #   state: present
 
 - name: packages | universe
   block:
-    - name:
-        repositories | add universe repository
-      apt_repository:
-        repo: universe
-        state: present
+    - name: repositories | add universe repository
+      shell: sudo add-apt-repository universe
+      # apt_repository:
+      #   repo: universe
+      #   state: present
 
 - name: packages | grub
   block:
-    - name:
-        repositories | add grub repository
+    - name: repositories | add grub repository
       apt_repository:
         repo: ppa:danielrichter2007/grub-customizer
         state: present
