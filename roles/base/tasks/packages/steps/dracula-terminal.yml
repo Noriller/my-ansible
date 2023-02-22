@@ -1,21 +1,21 @@
-- name: packages | dracula gnome terminal | check for profiles
-  become_user: '{{ user_login }}'
-  shell: dconf list /org/gnome/terminal/legacy/profiles:/ | wc -l
-  register: profiles_lines
+# - name: packages | dracula gnome terminal | check for profiles
+#   become_user: '{{ user_login }}'
+#   shell: dconf list /org/gnome/terminal/legacy/profiles:/ | wc -l
+#   register: profiles_lines
 
 - name: packages | dracula gnome terminal | git clone
   git:
     repo: https://github.com/dracula/gnome-terminal
-    dest: /tmp/dracula
+    dest: /home/{{ user_login }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
   when: profiles_lines.stdout == "0"
   register: dracula_git
 
-- name: packages | dracula gnome terminal
-  become_user: '{{ user_login }}'
-  shell: printf "%s\n" 1 yes 1 yes 1 | /tmp/dracula/install.sh
-  when: dracula_git.changed
+# - name: packages | dracula gnome terminal
+#   become_user: '{{ user_login }}'
+#   shell: printf "%s\n" 1 yes 1 yes 1 | /tmp/dracula/install.sh
+#   when: dracula_git.changed
 
-- name: packages | dracula gnome terminal | remove tmp
-  file:
-    path: /tmp/dracula
-    state: absent
+# - name: packages | dracula gnome terminal | remove tmp
+#   file:
+#     path: /tmp/dracula
+#     state: absent

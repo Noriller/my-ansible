@@ -81,6 +81,7 @@ plugins=(
   colorize
   command-not-found
   compleat
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
