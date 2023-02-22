@@ -7,7 +7,7 @@
   git:
     repo: https://github.com/dracula/gnome-terminal
     dest: /home/{{ user_login }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-  when: profiles_lines.stdout == "0"
+  # when: profiles_lines.stdout == "0"
   register: dracula_git
 
 # - name: packages | dracula gnome terminal
