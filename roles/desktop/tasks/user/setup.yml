@@ -14,20 +14,20 @@
 #     - Templates
 #     - Videos
 
-# - name: users | {{ user_login }} | create personal config directories
-#   tags: user_config
-#   file:
-#     path: /home/{{ user_login }}/{{ item.dir }}
-#     state: directory
-#     owner: '{{ user_login }}'
-#     group: '{{ user_login }}'
-#     mode: 0700
-#   with_items:
-#     - { dir: desktop }
-#     - { dir: documents }
-#     - { dir: downloads }
-#     - { dir: torrents }
-#     - { dir: git }
+- name: users | {{ user_login }} | create personal config directories
+  tags: user_config
+  file:
+    path: /home/{{ user_login }}/{{ item.dir }}
+    state: directory
+    owner: '{{ user_login }}'
+    group: '{{ user_login }}'
+    mode: 0700
+  with_items:
+    # - { dir: desktop }
+    # - { dir: documents }
+    # - { dir: downloads }
+    # - { dir: torrents }
+    - { dir: git }
 
 - name: users | {{ user_login }} | copy profile image
   tags: user_config
