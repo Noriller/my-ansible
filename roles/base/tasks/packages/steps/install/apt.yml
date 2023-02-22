@@ -1,6 +1,6 @@
 - name: install | apt packages
   block:
-    package:
+    - package:
       name:
         # basic stuff and dependencies
         - git
