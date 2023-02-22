@@ -5,3 +5,14 @@
 - import_tasks: roles/base/tasks/packages/steps/install/snap.yml
 - import_tasks: roles/base/tasks/packages/steps/install/flatpak.yml
 - import_tasks: roles/base/tasks/packages/steps/install/pip.yml
+
+# docker
+- import_tasks: roles/base/tasks/packages/steps/install/docker.yml
+
+# chrome
+- import_tasks: roles/base/tasks/packages/steps/install/chrome.yml
+
+# edge
+- import_tasks: roles/base/tasks/packages/steps/install/edge.yml
+
+# TODO: dropbox aptik

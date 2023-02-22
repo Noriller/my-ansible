@@ -3,64 +3,28 @@
   community.general.snap:
     name:
       - code
-    classic: true
-    state: present
-- name: install | snap packages classic
-  community.general.snap:
-    name:
       - android-studio
     classic: true
     state: present
+  rescue:
+    - set_fact: task_failed=true
 
 # utilities
 - name: install | snap packages
   community.general.snap:
     name:
-      - notepad-plus-plus
+    - notepadqq
+    - obs-studio
+    - jdownloader2
+    - canonical-livepatch
+    - scrcpy
+    # stuff I want
+    - discord
+    # - slack
+    # - notepad-plus-plus
+    # - onlyoffice-desktopeditors
+    # - p7zip-desktop
+    # - okular
     state: present
-- name: install | snap packages
-  community.general.snap:
-    name:
-      - obs-studio
-    state: present
-- name: install | snap packages
-  community.general.snap:
-    name:
-      - onlyoffice-desktopeditors
-    state: present
-- name: install | snap packages
-  community.general.snap:
-    name:
-      - jdownloader2
-    state: present
-- name: install | snap packages
-  community.general.snap:
-    name:
-      - canonical-livepatch
-    state: present
-- name: install | snap packages
-  community.general.snap:
-    name:
-      - p7zip-desktop
-    state: present
-- name: install | snap packages
-  community.general.snap:
-    name:
-      - okular
-    state: present
-- name: install | snap packages
-  community.general.snap:
-    name:
-      - scrcpy
-    state: present
-# stuff I want
-- name: install | snap packages
-  community.general.snap:
-    name:
-      - discord
-    state: present
-- name: install | snap packages
-  community.general.snap:
-    name:
-      - slack
-    state: present
+  rescue:
+    - set_fact: task_failed=true

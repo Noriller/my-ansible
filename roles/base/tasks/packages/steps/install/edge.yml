@@ -1,0 +1,27 @@
+- name: packages | edge
+  block:
+    - name: repositories | add edge key
+      apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+        state: present
+
+    - name: repositories | add edge repository
+      apt_repository:
+        repo:
+          deb [arch={{ [ansible_architecture] | map('extract', deb_architecture) | first }}]
+          https://packages.microsoft.com/repos/edge
+          stable main
+        state: present
+        filename: edge
+
+- name: install | apt edge
+  package:
+    name:
+      - microsoft-edge-stable
+    state: latest
+  register: packages
+  until: packages is success
+  retries: 10
+  delay: 10
+  rescue:
+    - set_fact: task_failed=true

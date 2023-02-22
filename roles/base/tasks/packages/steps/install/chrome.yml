@@ -1,0 +1,27 @@
+- name: packages | chrome
+  block:
+    - name: repositories | add chrome key
+      apt_key:
+        url: https://dl.google.com/linux/linux_signing_key.pub
+        state: present
+
+    - name: repositories | add chrome repository
+      apt_repository:
+        repo:
+          deb [arch={{ [ansible_architecture] | map('extract', deb_architecture) | first }}]
+          https://dl.google.com/linux/chrome/deb/
+          stable main
+        state: present
+        filename: google-chrome
+
+- name: install | apt chrome
+  package:
+    name:
+      - google-chrome-stable
+    state: latest
+  register: packages
+  until: packages is success
+  retries: 10
+  delay: 10
+  rescue:
+    - set_fact: task_failed=true

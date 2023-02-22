@@ -1,274 +1,51 @@
-# basic stuff and dependencies
 - name: install | apt packages
   package:
     name:
+      # basic stuff and dependencies
       - git
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - gh
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - curl
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - htop
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - tree
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - tmux
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - gnome-software-plugin-flatpak
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - ca-certificates
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - gnupg
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - lsb-release
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - dconf-cli
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - python3-psutil
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - python3-pip
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - laptop-mode-tools
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - gnome-tweaks
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - lm-sensors
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - gnome-shell-extension-autohidetopbar
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - gnome-shell-extension-prefs
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - ttf-mscorefonts-installer
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - default-jre
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - default-jdk
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - grub-customizer
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - baobab
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-# dev stuff
-- name: install | apt packages
-  package:
-    name:
-      - docker-ce
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - docker-ce-cli
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - containerd.io
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-# design stuff
-- name: install | apt packages
-  package:
-    name:
-      - hugin
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-# stuff i want
-- name: install | apt packages
-  package:
-    name:
-      - gnome-system-monitor
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
-      - google-chrome-stable
-    state: latest
-  register: packages
-  until: packages is success
-  retries: 10
-  delay: 10
-- name: install | apt packages
-  package:
-    name:
       - thunderbird
+      - steam
+      - stacer
+      - build-essential
+      - procps
+      - file
+      - grub-customizer
+      - gnome-tweaks
+      # when in VM
+      - spice-vdagent
+      - spice-webdavd
+      # - gnome-software-plugin-flatpak
+      # - laptop-mode-tools
+      # - lm-sensors
+      # - gnome-shell-extension-autohidetopbar
+      # - gnome-shell-extension-prefs
+      # - ttf-mscorefonts-installer
+      # - default-jre
+      # - default-jdk
+      # dev stuff
+      # - docker-ce
+      # - docker-ce-cli
+      # - containerd.io
+      # design stuff
+      # - hugin
+      # stuff i want
+      # - gnome-system-monitor
+      # - google-chrome-stable
     state: latest
   register: packages
   until: packages is success
   retries: 10
   delay: 10
+  rescue:
+    - set_fact: task_failed=true

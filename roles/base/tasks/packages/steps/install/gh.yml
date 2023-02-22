@@ -1,0 +1,28 @@
+- name: packages | github cli
+  block:
+    - name: repositories | add github cli keyring
+      apt_key:
+        url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+        state: present
+        keyring: /etc/apt/trusted.gpg.d/githubcli-archive-keyring.gpg
+
+    - name:
+        repositories | add github cli repository
+      apt_repository:
+        repo:
+          deb https://cli.github.com/packages
+          stable main
+        state: present
+        filename: github-cli.list
+
+- name: install | gh package
+  package:
+    name:
+      - gh
+    state: latest
+  register: packages
+  until: packages is success
+  retries: 10
+  delay: 10
+  rescue:
+    - set_fact: task_failed=true

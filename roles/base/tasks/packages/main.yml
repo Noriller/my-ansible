@@ -1,3 +1,12 @@
+- vars:
+  deb_architecture: {
+    "armv6l": "armhf",
+    "armv7l": "armhf",
+    "aarch64": "arm64",
+    "x86_64": "amd64",
+    "i386": "i386"
+  }
+
 # packages
 - import_tasks: roles/base/tasks/packages/steps/repositories.yml
 - import_tasks: roles/base/tasks/packages/steps/install.yml
@@ -5,7 +14,7 @@
 - import_tasks: roles/base/tasks/packages/steps/dracula-terminal.yml
 - import_tasks: roles/base/tasks/packages/steps/gnome-extensions.yml
 - import_tasks: roles/base/tasks/packages/steps/ubuntu-drivers.yml
-- import_tasks: roles/base/tasks/packages/steps/docker-config.yml
+- import_tasks: roles/base/tasks/packages/steps/nordvpn.yml
 
 # updater
 - import_tasks: roles/base/tasks/packages/updates.yml

@@ -1,11 +1,5 @@
 - name: install | pip packages
   pip:
     name:
-      - docker-compose
-    state: present
-
-- name: install | pip packages
-  pip:
-    name:
       - speedtest-cli
     state: present

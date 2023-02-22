@@ -1,0 +1,66 @@
+- name: packages | docker | Create "docker" group
+  group:
+    name: docker
+    state: present
+
+- name: packages | docker | Add user to "docker" group
+  user:
+    name: "{{ user_login }}"
+    groups: docker
+    append: yes
+
+- name: install | docker base apt packages
+  package:
+    name:
+      # basic stuff and dependencies
+      - ca-certificates
+      - curl
+      - gnupg
+      - lsb-release
+    state: latest
+  register: packages
+  until: packages is success
+  retries: 10
+  delay: 10
+  rescue:
+    - set_fact: task_failed=true
+
+- name: packages | docker
+  block:
+    - name: repositories | add docker key
+      apt_key:
+        url: https://download.docker.com/{{ ansible_system | lower }}/{{ ansible_distribution | lower }}/gpg
+        state: present
+
+    - name: repositories | add docker repository
+      apt_repository:
+        repo:
+          deb [arch={{ [ansible_architecture] | map('extract', deb_architecture) | first }}]
+          https://download.docker.com/{{ ansible_system | lower }}/{{ ansible_distribution | lower }}
+          {{ ansible_distribution_release }} stable
+        state: present
+        filename: docker
+
+- name: install | docker packages
+  package:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-buildx-plugin
+      - docker-compose-plugin
+    state: latest
+  register: packages
+  until: packages is success
+  retries: 10
+  delay: 10
+  rescue:
+    - set_fact: task_failed=true
+
+- name: install | docker pip packages
+  pip:
+    name:
+      - speedtest-cli
+      - docker
+      - docker-compose
+    state: present

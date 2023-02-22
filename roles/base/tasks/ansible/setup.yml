@@ -13,6 +13,8 @@
     group: root
     mode: 0440
 
+# TODO: galaxy pull
+
 - name: ansible setup | add ansible-pull cron job | auto provision
   tags: always,ansible
   cron:

@@ -14,12 +14,12 @@ ZSH_THEME=random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
-ZSH_THEME_RANDOM_CANDIDATES=(
-  "robbyrussell" "agnoster" "amuse" "aussiegeek" "bira" "candy"
-  "cloud" "crcandy" "dallas" "darkblood" "fino-time" "half-life"
-  "jonathan" "miloshadzic" "nebirhos" "norm" "rkj-repos"
-  "xiong-chiamiov" "xiong-chiamiov-plus" "ys"
-)
+# ZSH_THEME_RANDOM_CANDIDATES=(
+#   "robbyrussell" "agnoster" "amuse" "aussiegeek" "bira" "candy"
+#   "cloud" "crcandy" "dallas" "darkblood" "fino-time" "half-life"
+#   "jonathan" "miloshadzic" "nebirhos" "norm" "rkj-repos"
+#   "xiong-chiamiov" "xiong-chiamiov-plus" "ys"
+# )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -75,7 +75,13 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  colored-man-pages
+  colorize
+  command-not-found
+  compleat
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -144,8 +150,37 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 eval `dircolors $HOME/.dir_colors/dircolors`
 
+alias speed="speedtest --simple --no-upload"
+alias vpn="nordvpn status"
+alias vpnc="nordvpn c"
+alias vpnb="nordvpn c br"
+alias vpnp="nordvpn c p2p"
+
+alias fullupdate="sudo apt update -y && sudo apt upgrade -y && sudo snap refresh && sudo flatpak update -y"
+
+term(){
+  export mycmd="$@";
+  gnome-terminal -- $SHELL -c "source ~/.zshrc; $mycmd; exec $SHELL"
+}
+
+killport(){
+  kill -9 $(lsof -t -i:$1) 2> /dev/null
+}
+
+alias scale="xrandr --output eDP-1 --scale 1.2x1.2"
+alias scale1="xrandr --output eDP-1 --scale 1x1"
+
+fontScale() {
+  gsettings set org.gnome.desktop.interface text-scaling-factor "$1";
+}
+
+alias d2="scale1 && fontScale 1"
+alias d1="scale && fontScale 1"
+alias d0="scale1 && fontScale 0.85"
+
+alias mirror="scrcpy"
+alias subVideo="sudo modprobe v4l2loopback devices=2 exclusive_caps=1; scrcpy & obs-studio --startvirtualcam &; wait"
+
 if [ "$(pwd)" = "$HOME" ]; then
   echo "Hello, ZA WARUDO."
 fi
-
-alias speed="speedtest --simple --no-upload"
