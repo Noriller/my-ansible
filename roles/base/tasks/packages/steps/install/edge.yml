@@ -12,7 +12,7 @@
           https://packages.microsoft.com/repos/edge
           stable main
         state: present
-        filename: edge
+        filename: microsoft-edge
 
 - name: install | apt edge
   block:
