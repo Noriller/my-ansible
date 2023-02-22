@@ -19,7 +19,6 @@
 - name: nordvpn
   become: true
   import_role:
-  roles:
     name: ansible-nordvpn
     vars:
       auto_connect: true
