@@ -21,6 +21,7 @@
       register: nordvpn_download
 
     - name: nordvpn | install nordvpn script
+      become: true
       become_user: '{{ user_login }}'
       shell: sh -c /tmp/nordvpn_script.sh
       when: nordvpn_download.changed

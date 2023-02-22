@@ -5,10 +5,30 @@
 - import_tasks: roles/base/tasks/packages/steps/dracula-terminal.yml
 - import_tasks: roles/base/tasks/packages/steps/gnome-extensions.yml
 - import_tasks: roles/base/tasks/packages/steps/ubuntu-drivers.yml
-- import_tasks: roles/base/tasks/packages/steps/nordvpn.yml
+# - import_tasks: roles/base/tasks/packages/steps/nordvpn.yml
 
 # updater
 - import_tasks: roles/base/tasks/packages/updates.yml
 
-# dropbox
-- roles: dropbox
+
+- name: dropbox
+  become: true
+  import_role:
+    name: ansible-dropbox
+
+- name: nordvpn
+  become: true
+  import_role:
+  roles:
+    name: ansible-nordvpn
+    vars:
+      auto_connect: true
+      auto_connect_host: "br"
+      firewall: true
+      kill_switch: true
+      technology: "NORDLYNX"
+      login: false
+      # username: my@email.com
+      # password: "my passwd, preferable encrypted, see https://bit.ly/3rOIlz3"
+    whitelisted_ports: [22, 80]
+    whitelisted_subnets: ["192.168.0.0/16"]
