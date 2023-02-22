@@ -23,7 +23,7 @@
     - name: nordvpn | install nordvpn script
       become_user: '{{ user_login }}'
       shell: sh -c /tmp/nordvpn_script.sh
-      when: nordvpn_download.changed && nordvpn_group.changed
+      when: nordvpn_download.changed
       register: nordvpn_install
       ignore_errors: True
 
