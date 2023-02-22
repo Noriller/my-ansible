@@ -12,26 +12,28 @@
 
 
 - name: dropbox
-  become: true
-  import_role:
-    name: ansible-dropbox
+  block:
+    - name: dropbox
+      become: true
+      import_role:
+        name: ansible-dropbox
   rescue:
     - set_fact: task_failed=true
 
 - name: nordvpn
-  become: true
-  import_role:
-    name: ansible-nordvpn
-  vars:
-    auto_connect: true
-    auto_connect_host: "br"
-    firewall: true
-    kill_switch: true
-    cyber_sec: true
-    notifications: true
-    technology: "NORDLYNX"
-    login: false
-    # username: my@email.com
-    # password: "my passwd, preferable encrypted, see https://bit.ly/3rOIlz3"
+  block:
+  - name: nordvpn
+    become: true
+    import_role:
+      name: ansible-nordvpn
+    vars:
+      auto_connect: true
+      auto_connect_host: "br"
+      firewall: true
+      kill_switch: true
+      cyber_sec: true
+      notifications: true
+      technology: "NORDLYNX"
+      login: false
   rescue:
     - set_fact: task_failed=true
