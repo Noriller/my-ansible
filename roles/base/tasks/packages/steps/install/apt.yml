@@ -24,6 +24,7 @@
           - file
           - grub-customizer
           - gnome-tweaks
+          - notepadqq
           # when in VM
           - spice-vdagent
           - spice-webdavd

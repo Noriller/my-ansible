@@ -16,7 +16,6 @@
     - name: install | snap packages
       community.general.snap:
         name:
-        - notepadqq
         - obs-studio
         - jdownloader2
         - canonical-livepatch
