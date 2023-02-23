@@ -34,6 +34,7 @@
           - com.stremio.Stremio
           - org.videolan.VLC
           - org.qbittorrent.qBittorrent
+          - com.dropbox.Client
           # dev stuff
           - org.gnome.Boxes
           # utilities
@@ -52,7 +53,6 @@
           # - org.gimp.GIMP.Plugin.Resynthesizer/x86_64/2-40
           # stuff I want
           # - com.calibre_ebook.calibre
-          # - com.dropbox.Client
           # dev stuff
           # - org.gnome.Boxes
         state: present
