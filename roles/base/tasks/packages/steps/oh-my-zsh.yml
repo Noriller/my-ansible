@@ -30,6 +30,17 @@
         group: '{{ user_login }}'
         mode: 0644
 
+    - name: users | {{ user_login }} | create dircolor directory
+      tags: user_config
+      file:
+        path: /home/{{ user_login }}/{{ item.dir }}
+        state: directory
+        owner: '{{ user_login }}'
+        group: '{{ user_login }}'
+        mode: 0644
+      with_items:
+        - { dir: .dir_colors }
+
     - name: oh-my-zsh | copy dircolors
       copy:
         src: files/dircolors
