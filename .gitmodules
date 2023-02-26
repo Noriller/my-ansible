@@ -1,6 +1,6 @@
 [submodule "roles/ansible-role-customize-gnome"]
 	path = roles/ansible-role-customize-gnome
-	url = https://github.com/Noriller/ansible-role-customize-gnome.git
+	url = https://github.com/PeterMosmans/ansible-role-customize-gnome.git
 
 [submodule "roles/ansible-dropbox"]
 	path = roles/ansible-dropbox
