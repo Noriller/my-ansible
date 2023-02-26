@@ -1,26 +1,74 @@
 - name: gnome extensions
   become: true
-  shell: "apt install $(apt search gnome-shell-extension | grep ^gnome | cut -d / -f1) -y"
+  shell:
+    'apt install $(apt search gnome-shell-extension | grep ^gnome | cut -d /
+    -f1) -y'
 
-# - name: gnome extensions
-#   become: true
-#   import_role:
-#     name: ansible-role-customize-gnome
-#   vars:
-#     gnome_extensions:
-#       - id: 779     # clipboard-indicator
-#       - id: 7       # removable-drive-menu
-#       # - id: 3088    # extension-list
-#       - id: 6       # applications-menu
-#       # - id: 120     # system-monitor
-#       - id: 1036    # extensions
-#       - id: 841     # freon
-#       # - id: 323     # multiple-monitor-panels
-#       # - id: 307     # dash-to-dock
-#       - id: 1160    # dash-to-panel
-#       - id: 906     # sound-output-device-chooser
-#       # - id: 1319    # gsconnect
-#       - id: 1723    # wintile-windows-10-window-tiling-for-gnome
-#       - id: 3733    # tiling-assistant
-#     gnome_user: '{{ user_login }}'
-#     gtk_version: 3.0
+- name: gnome extensions
+  become: true
+  import_role:
+    name: ansible-role-customize-gnome
+  vars:
+    gnome_extensions:
+      # Applications Menu by fmuellner
+      - id: 6
+        enabled: yes
+      # Bluetooth Quick Connect by bjarosze
+      - id: 1401
+        enabled: yes
+      # Caffeine by eon
+      - id: 517
+        enabled: yes
+      # Clipboard Indicator by Tudmotu
+      - id: 779
+        enabled: yes
+      # Dash to Panel by charlesg99
+      - id: 1160
+        enabled: no
+      # Draw On You Screen by abakkk
+      - id: 1683
+        enabled: yes
+      # Extensions by petres
+      - id: 1036
+        enabled: yes
+      # Freon by UshakovVasilii
+      - id: 841
+        enabled: yes
+      # # GPaste
+      # - id: ???
+      #   enabled: yes
+      # NoAnnoyance by sindex
+      - id: 1236
+        enabled: yes
+      # Places Status Indicator by fmuellner
+      - id: 8
+        enabled: yes
+      # Removable Drive Menu by fmuellner
+      - id: 7
+        enabled: yes
+      # Remove Dropdown Arrows by mpdeimos
+      - id: 800
+        enabled: yes
+      # Sound Input & Output Device Chooser by kgshank
+      - id: 906
+        enabled: yes
+      # system-monitor by Cerin
+      - id: 120
+        enabled: yes
+      # Tiling Assistant by Leleat
+      - id: 3733
+        enabled: yes
+      # Tilix DropDown by ivkuzev
+      - id: 1185
+        enabled: yes
+      # WinTile: Windows 10 window tiling for GNOME by Fmstrat
+      - id: 1723
+        enabled: yes
+      # Workspace Indicator by fmuellner
+      - id: 21
+        enabled: yes
+      # Workspaces to Dock by passingthru67
+      - id: 427
+        enabled: yes
+    gnome_user: '{{ user_login }}'
+    # gtk_version: 3.0
