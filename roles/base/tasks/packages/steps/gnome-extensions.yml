@@ -13,6 +13,12 @@
       # Applications Menu by fmuellner
       - id: 6
         enabled: yes
+      # ArcMenu by andrew.zaech
+      - id: 3628
+        enabled: yes
+      # Bing Wallpaper by neffo
+      - id: 1262
+        enabled: yes
       # Bluetooth Quick Connect by bjarosze
       - id: 1401
         enabled: yes
@@ -25,8 +31,14 @@
       # Dash to Panel by charlesg99
       - id: 1160
         enabled: no
+      # disable-touch-osk by sulincix
+      - id: 4087
+        enabled: yes
       # Draw On You Screen by abakkk
       - id: 1683
+        enabled: yes
+      # Emoji Selector by Maestroschan
+      - id: 1162
         enabled: yes
       # Extensions by petres
       - id: 1036
@@ -34,9 +46,12 @@
       # Freon by UshakovVasilii
       - id: 841
         enabled: yes
-      # # GPaste
-      # - id: ???
-      #   enabled: yes
+      # Hide Activities Button by nmingori
+      - id: 4325
+        enabled: yes
+      # Improved Workspace Indicator by MichaelAquilina
+      - id: 3968
+        enabled: yes
       # NoAnnoyance by sindex
       - id: 1236
         enabled: yes
@@ -52,6 +67,9 @@
       # Sound Input & Output Device Chooser by kgshank
       - id: 906
         enabled: yes
+      # System Menu by jonius
+      - id: 1204
+        enabled: yes
       # system-monitor by Cerin
       - id: 120
         enabled: yes
@@ -60,6 +78,9 @@
         enabled: yes
       # Tilix DropDown by ivkuzev
       - id: 1185
+        enabled: yes
+      # Vitals by corecoding
+      - id: 1460
         enabled: yes
       # WinTile: Windows 10 window tiling for GNOME by Fmstrat
       - id: 1723
