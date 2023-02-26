@@ -12,84 +12,84 @@
     gnome_extensions:
       # Applications Menu by fmuellner
       - id: 6
-        enabled: yes
+        # enabled: yes
       # ArcMenu by andrew.zaech
       - id: 3628
-        enabled: yes
+        # enabled: yes
       # Bing Wallpaper by neffo
       - id: 1262
-        enabled: yes
+        # enabled: yes
       # Bluetooth Quick Connect by bjarosze
       - id: 1401
-        enabled: yes
+        # enabled: yes
       # Caffeine by eon
       - id: 517
-        enabled: yes
+        # enabled: yes
       # Clipboard Indicator by Tudmotu
       - id: 779
-        enabled: yes
+        # enabled: yes
       # Dash to Panel by charlesg99
       - id: 1160
-        enabled: no
+        # enabled: no
       # disable-touch-osk by sulincix
       - id: 4087
-        enabled: yes
+        # enabled: yes
       # Draw On You Screen by abakkk
       - id: 1683
-        enabled: yes
+        # enabled: yes
       # Emoji Selector by Maestroschan
       - id: 1162
-        enabled: yes
+        # enabled: yes
       # Extensions by petres
       - id: 1036
-        enabled: yes
+        # enabled: yes
       # Freon by UshakovVasilii
       - id: 841
-        enabled: yes
+        # enabled: yes
       # Hide Activities Button by nmingori
       - id: 4325
-        enabled: yes
+        # enabled: yes
       # Improved Workspace Indicator by MichaelAquilina
       - id: 3968
-        enabled: yes
+        # enabled: yes
       # NoAnnoyance by sindex
       - id: 1236
-        enabled: yes
+        # enabled: yes
       # Places Status Indicator by fmuellner
       - id: 8
-        enabled: yes
+        # enabled: yes
       # Removable Drive Menu by fmuellner
       - id: 7
-        enabled: yes
+        # enabled: yes
       # Remove Dropdown Arrows by mpdeimos
       - id: 800
-        enabled: yes
+        # enabled: yes
       # Sound Input & Output Device Chooser by kgshank
       - id: 906
-        enabled: yes
+        # enabled: yes
       # System Menu by jonius
       - id: 1204
-        enabled: yes
+        # enabled: yes
       # system-monitor by Cerin
       - id: 120
-        enabled: yes
+        # enabled: yes
       # Tiling Assistant by Leleat
       - id: 3733
-        enabled: yes
+        # enabled: yes
       # Tilix DropDown by ivkuzev
       - id: 1185
-        enabled: yes
+        # enabled: yes
       # Vitals by corecoding
       - id: 1460
-        enabled: yes
+        # enabled: yes
       # WinTile: Windows 10 window tiling for GNOME by Fmstrat
       - id: 1723
-        enabled: yes
+        # enabled: yes
       # Workspace Indicator by fmuellner
       - id: 21
-        enabled: yes
+        # enabled: yes
       # Workspaces to Dock by passingthru67
       - id: 427
-        enabled: yes
+        # enabled: yes
     gnome_user: '{{ user_login }}'
-    # gtk_version: 3.0
+    gtk_version: 3.0
