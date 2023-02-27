@@ -37,7 +37,7 @@
         state: directory
         owner: '{{ user_login }}'
         group: '{{ user_login }}'
-        mode: 0644
+        mode: 0755
       with_items:
         - { dir: .dir_colors }
 
