@@ -374,7 +374,7 @@
       - base_path: org/gnome/settings-daemon/plugins/media-keys
         key_value:
           - { key: "area-screenshot-clip", value: "['<Shift><Super>s']" }
-          - { key: "custom-keybindings", value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']" }
+          - { key: "custom-keybindings", value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']" }
           - { key: "terminal", value: "['<Super>q']" }
       - base_path: org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0
         key_value:
@@ -386,6 +386,11 @@
           - { key: "binding", value: "'<Super>e'" }
           - { key: "command", value: "'nautilus'" }
           - { key: "name", value: "'Open Files'" }
+      - base_path: org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2
+        key_value:
+          - { key: "binding", value: "'<Shift><Super>s'" }
+          - { key: "command", value: "'gnome-screenshot -a -c'" }
+          - { key: "name", value: "'Copy Screenshot Area to Clipboard'" }
       - base_path: com/ubuntu/update-notifier
         key_value:
           - { key: "regular-auto-launch-interval", value: "0" }

@@ -25,6 +25,7 @@
           - grub-customizer
           - gnome-tweaks
           - notepadqq
+          - gnome-screenshot
           # when in VM
           - spice-vdagent
           - spice-webdavd
