@@ -126,11 +126,11 @@
       - base_path: org/gnome/desktop/notifications/application/gnome-printers-panel
         key_value:
           - { key: "enable", value: "false" }
-      - base_path: org/gnome/desktop/peripherals/touchpad
-        key_value:
-          - { key: "click-method", value: "fingers"}
-          - { key: "edge-scrolling-enabled", value: "true"}
-          - { key: "two-finger-scrolling-enabled", value: "true"}
+      # - base_path: org/gnome/desktop/peripherals/touchpad
+      #   key_value:
+      #     - { key: "click-method", value: "fingers"}
+      #     - { key: "edge-scrolling-enabled", value: "true"}
+      #     - { key: "two-finger-scrolling-enabled", value: "true"}
       - base_path: org/gnome/desktop/privacy
         key_value:
           - { key: "recent-files-max-age", value: "30" }
