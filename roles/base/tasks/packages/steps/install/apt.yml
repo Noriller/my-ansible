@@ -26,6 +26,7 @@
           - gnome-tweaks
           - notepadqq
           - gnome-screenshot
+          - bleachbit
           # when in VM
           - spice-vdagent
           - spice-webdavd
