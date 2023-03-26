@@ -389,7 +389,7 @@
       - base_path: org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2
         key_value:
           - { key: "binding", value: "'<Shift><Super>s'" }
-          - { key: "command", value: "'gnome-screenshot -a -c'" }
+          - { key: "command", value: "'sh -c \"gnome-screenshot -acf /tmp/test && cat /tmp/test | xclip -i -selection clipboard -target image/png\"'" }
           - { key: "name", value: "'Copy Screenshot Area to Clipboard'" }
       - base_path: com/ubuntu/update-notifier
         key_value:

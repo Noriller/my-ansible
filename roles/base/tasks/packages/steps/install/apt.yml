@@ -27,6 +27,7 @@
           - notepadqq
           - gnome-screenshot
           - bleachbit
+          - xclip
           # when in VM
           - spice-vdagent
           - spice-webdavd
