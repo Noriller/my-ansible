@@ -180,7 +180,7 @@ alias d1="scale && fontScale 1"
 alias d0="scale1 && fontScale 0.85"
 
 alias mirror="scrcpy"
-alias subVideo="sudo modprobe v4l2loopback devices=2 exclusive_caps=1; scrcpy & obs-studio --startvirtualcam &; wait"
+alias subVideo="sudo modprobe v4l2loopback devices=2 exclusive_caps=1 card_label='OBS VCam'; scrcpy & sleep 4 && obs-studio --startvirtualcam &; wait"
 
 if [ "$(pwd)" = "$HOME" ]; then
   echo "Hello, ZA WARUDO."
